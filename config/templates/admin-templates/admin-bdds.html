@@ -30,11 +30,8 @@
           <a href="admin-impuesto.html" class="icon-impuesto"><span>Percentages</span></a>
           <a href="admin-bdds.html" class="icon-bdd"><span>BDD</span></a>
       </div>
-
       <div class="cerrar-sesion">
-        <a href="../templates/index.html" class="button-cerrar-sesion"
-          >Cerrar Sesión</a
-        >
+        <a href="{{ url_for('auth_route.logout') }}" class="button-cerrar-sesion">Cerrar Sesión</a>
       </div>
     </nav>
 

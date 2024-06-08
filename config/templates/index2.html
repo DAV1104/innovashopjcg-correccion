@@ -1,54 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>InnovaShop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="../static/css/style.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <script src="main.js"></script>
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+<body>
     <header>
-      <nav class="navbar">
-        <div class="container">
-          <a href="index.html" class="logo">InnovaShop</a>
-        </div>
-      </nav>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">InnovaShop</a>
+            </div>
+        </nav>
 
-      <div class="hero-content">
-        <div class="container">
-          <h1>InnovaShop</h1>
-          <p>ESCOJA SU ROL DE ACCESO</p>
-          <div class="action-buttons">
-            <a href="admin.html" class="btn">Administrador</a>
-            <a href="inicio_empresas.html" class="btn">Empresa</a>
-            <a href="vendedor-inicio.html" class="btn"
-              >Vendedor</a
-            >
-            <a href="registrarse-user.html" class="btn">Usuario</a>
-          </div>
+        <div class="hero-content">
+            <div class="container">
+                <h1>InnovaShop</h1>
+                <p>ESCOJA SU ROL DE ACCESO</p>
+                <div class="action-buttons">
+                    <a href="/admin/login" id="admin-button" class="btn">Administrador</a>
+                    <a href="/user/login" class="btn">Usuarios</a>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
 
     <div class="action-buttons" style="text-align: center">
-      <a href="index.html" class="btn">Volver</a>
+        <a href="index.html" class="btn">Volver</a>
     </div>
 
     <footer>
-      <div class="container">
-        <p>Derechos de autor © 2024 - InnovaShop</p>
-      </div>
+        <div class="container">
+            <p>Derechos de autor © 2024 - InnovaShop</p>
+        </div>
     </footer>
-  </body>
+    <script src="../static/js/main.js"></script> <!-- Correct path to main.js -->
+</body>
 </html>

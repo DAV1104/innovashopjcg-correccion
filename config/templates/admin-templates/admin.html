@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
     <link rel="stylesheet" href="../static/css/admin.css" />
-  </head>
-  <body>
+</head>
+<body>
     <nav class="menu" tabindex="0">
-      <div class="smartphone-menu-trigger"></div>
-      <header class="avatar">
-        <img src="../static/img/foto_perfil.png" />
-        <h2 style="color: #070707; font-weight: bold">Pedrito</h2>
-        <h2 style="font-size: 15px; color: #070707">Admin</h2>
-      </header>
-      <div class="lista-iconos">
-          <a href="admin.html" tabindex="0" class="icon-inicio">
-            <span>Inicio</span>
-          </a>
-          <a href="admin-empresas.html" tabindex="0" class="icon-empresas">
-            <span>Empresas</span>
-          </a>
-          <a href="admin-modulos.html" class="icon-stock"><span>Modulos</span></a>
-          <a href="admin-impuesto.html" class="icon-impuesto"><span>Percentages</span></a>
-          <a href="admin-bdds.html" class="icon-bdd"><span>BDD</span></a>
-      </div>
+        <div class="smartphone-menu-trigger"></div>
+        <header class="avatar">
+            <img src="../static/img/foto_perfil.png" />
+            <h2 id="admin-name" style="color: #070707; font-weight: bold">Loading...</h2>
+            <h2 id="admin-role" style="font-size: 15px; color: #070707">Administrador</h2>
+        </header>
+        <div class="lista-iconos">
+            <a href="/admin/home" tabindex="0" class="icon-inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="/admin/admin-empresas" tabindex="0" class="icon-empresas">
+                <span>Empresas</span>
+            </a>
+            <a href="admin-modulos.html" class="icon-stock"><span>Modulos</span></a>
+            <a href="admin-impuesto.html" class="icon-impuesto"><span>Percentages</span></a>
+            <a href="admin-bdds.html" class="icon-bdd"><span>BDD</span></a>
+        </div>
 
-      <div class="cerrar-sesion">
-        <a href="../templates/index.html" class="button-cerrar-sesion"
-          >Cerrar Sesión</a
-        >
-      </div>
+        <div class="cerrar-sesion">
+            <a href="../templates/index.html" class="button-cerrar-sesion">Cerrar Sesión</a>
+        </div>
     </nav>
 
     <div class="container">
-      <b class="texto-bienvenida">Bienvenido Administrador</b>
+        <b class="texto-bienvenida">Bienvenido Administrador</b>
     </div>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            axios.get('/admin/admin-info')  // Ensure the URL is absolute
+                .then(function(response) {
+                    document.getElementById('admin-name').textContent = response.data.nombre;
+                })
+                .catch(function(error) {
+                    console.error('Error fetching admin info:', error);
+                    document.getElementById('admin-name').textContent = 'Error';
+                });
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
 </html>

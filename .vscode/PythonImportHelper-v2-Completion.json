@@ -16,6 +16,110 @@
         "documentation": {}
     },
     {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -64,6 +168,78 @@
         "documentation": {}
     },
     {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Blueprint",
         "importPath": "flask",
         "description": "flask",
@@ -104,6 +280,14 @@
         "documentation": {}
     },
     {
+        "label": "json",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
@@ -112,7 +296,23 @@
         "documentation": {}
     },
     {
-        "label": "Blueprint",
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -160,46 +360,6 @@
         "documentation": {}
     },
     {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "render_template",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "redirect",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "Marshmallow",
         "importPath": "flask_marshmallow",
         "description": "flask_marshmallow",
@@ -222,126 +382,6 @@
         "importPath": "pymysql",
         "description": "pymysql",
         "detail": "pymysql",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "ma",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "ma",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "ma",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "ma",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "config.db",
-        "description": "config.db",
-        "isExtraImport": true,
-        "detail": "config.db",
         "documentation": {}
     },
     {
@@ -377,6 +417,214 @@
         "documentation": {}
     },
     {
+        "label": "Empresa",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "EmpresaSchema",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "Empresa",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "EmpresaSchema",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "Empresa",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "EmpresaSchema",
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "isExtraImport": true,
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -422,6 +670,94 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Usuario",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioSchema",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
+        "label": "Usuario",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioSchema",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
+        "label": "Usuario",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioSchema",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
         "documentation": {}
     },
     {
@@ -452,30 +788,6 @@
         "documentation": {}
     },
     {
-        "label": "Usuario",
-        "importPath": "models.Usuario",
-        "description": "models.Usuario",
-        "isExtraImport": true,
-        "detail": "models.Usuario",
-        "documentation": {}
-    },
-    {
-        "label": "UsuarioSchema",
-        "importPath": "models.Usuario",
-        "description": "models.Usuario",
-        "isExtraImport": true,
-        "detail": "models.Usuario",
-        "documentation": {}
-    },
-    {
-        "label": "verify_password",
-        "importPath": "hashing_helper",
-        "description": "hashing_helper",
-        "isExtraImport": true,
-        "detail": "hashing_helper",
-        "documentation": {}
-    },
-    {
         "label": "ruta_auth",
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
@@ -492,11 +804,27 @@
         "documentation": {}
     },
     {
-        "label": "hash_password",
-        "importPath": "controllers.hashing_helper",
-        "description": "controllers.hashing_helper",
+        "label": "ruta_user",
+        "importPath": "controllers.Usuarios",
+        "description": "controllers.Usuarios",
         "isExtraImport": true,
-        "detail": "controllers.hashing_helper",
+        "detail": "controllers.Usuarios",
+        "documentation": {}
+    },
+    {
+        "label": "ruta_index",
+        "importPath": "controllers.Indexes",
+        "description": "controllers.Indexes",
+        "isExtraImport": true,
+        "detail": "controllers.Indexes",
+        "documentation": {}
+    },
+    {
+        "label": "ruta_empresa",
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "isExtraImport": true,
+        "detail": "controllers.Empresa",
         "documentation": {}
     },
     {
@@ -558,7 +886,61 @@
         "kind": 2,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "def homeadmin():\n    return render_template('admin-templates/admin.html')",
+        "peekOfCode": "def homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "show_enterprises",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()\n    else:\n        empresas = Empresa.query.all()\n    return render_template('admin-templates/admin-empresas.html', empresas=empresas)",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "search_enterprises",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def search_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()\n    else:\n        empresas = Empresa.query.all()\n    return empresas_schema.jsonify(empresas)",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "update_empresa_estado",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def update_empresa_estado():\n    data = request.json\n    nit = data.get('nit')\n    nombre = data.get('nombre')\n    estado = data.get('estado')\n    empresa = Empresa.query.filter_by(nit=nit, nombre=nombre).first()\n    if not empresa:\n        return jsonify({\"error\": \"Empresa no encontrada\"}), 404\n    empresa.estado = estado\n    db.session.commit()",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "show_add_enterprises",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def show_add_enterprises():\n    return render_template('admin-templates/admin-add-empresas.html')\n@ruta_admin.route('/login', methods=['GET'])\ndef login():\n    return render_template(\"admin-templates/login.html\")\n@ruta_admin.route('/admin-info', methods=['GET'])\ndef admin_info():\n    user_id = session.get('user_id')  # Assuming user_id is stored in the session\n    if not user_id:\n        return jsonify({\"error\": \"Not logged in\"}), 401",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def login():\n    return render_template(\"admin-templates/login.html\")\n@ruta_admin.route('/admin-info', methods=['GET'])\ndef admin_info():\n    user_id = session.get('user_id')  # Assuming user_id is stored in the session\n    if not user_id:\n        return jsonify({\"error\": \"Not logged in\"}), 401\n    admin = Administrador.query.get(user_id)\n    if not admin:\n        return jsonify({\"error\": \"User not found\"}), 404",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "admin_info",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def admin_info():\n    user_id = session.get('user_id')  # Assuming user_id is stored in the session\n    if not user_id:\n        return jsonify({\"error\": \"Not logged in\"}), 401\n    admin = Administrador.query.get(user_id)\n    if not admin:\n        return jsonify({\"error\": \"User not found\"}), 404\n    return jsonify({\"nombre\": admin.nombre})",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -567,25 +949,34 @@
         "kind": 5,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "ruta_admin = Blueprint('admin_route', __name__)\n@ruta_admin.route('/admin')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')",
+        "peekOfCode": "ruta_admin = Blueprint('admin_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
     {
-        "label": "generar_token_admin",
-        "kind": 2,
-        "importPath": "controllers.Auth",
-        "description": "controllers.Auth",
-        "peekOfCode": "def generar_token_admin(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token\n@ruta_auth.route('/login', methods=['GET'])\ndef login():",
-        "detail": "controllers.Auth",
+        "label": "empresa_schema",
+        "kind": 5,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(",
+        "detail": "controllers.Administrador",
         "documentation": {}
     },
     {
-        "label": "login",
+        "label": "empresas_schema",
+        "kind": 5,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "generar_token",
         "kind": 2,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "def login():\n    return render_template(\"admin-templates/login.html\")\n@ruta_auth.route('/ingreso-admin', methods=['POST'])\ndef login_admin():\n    data = request.json\n    if not data[\"clave\"] or not data[\"usuario\"]:\n        return jsonify({\"error\": \"Uno o más campos están vacíos\"}), 400\n    administrador = Administrador.query.filter_by(\n        usuario=data[\"usuario\"],\n    ).first()",
+        "peekOfCode": "def generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token\n@ruta_auth.route('/ingreso-admin', methods=['POST'])\ndef login_admin():",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -594,7 +985,25 @@
         "kind": 2,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "def login_admin():\n    data = request.json\n    if not data[\"clave\"] or not data[\"usuario\"]:\n        return jsonify({\"error\": \"Uno o más campos están vacíos\"}), 400\n    administrador = Administrador.query.filter_by(\n        usuario=data[\"usuario\"],\n    ).first()\n    if administrador is None or not verify_password(administrador.contraseña, data[\"clave\"]):\n        return jsonify({\"error\": \"Usuario o contraseña incorrectos\"}), 404\n    token = generar_token_admin(administrador.id)",
+        "peekOfCode": "def login_admin():\n    data = request.json\n    if not data[\"clave\"] or not data[\"usuario\"]:\n        return jsonify({\"error\": \"Uno o más campos están vacíos\"}), 400\n    administrador = Administrador.query.filter_by(\n        usuario=data[\"usuario\"],\n    ).first()\n    if administrador is None or not verify_password(administrador.contraseña, data[\"clave\"]):\n        return jsonify({\"error\": \"Usuario o contraseña incorrectos\"}), 404\n    # Store user information in session",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "kind": 2,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "def login_user():\n    data = request.json\n    if not data[\"clave\"] or not data[\"usuario\"]:\n        return jsonify({\"error\": \"Uno o más campos están vacíos\"}), 400\n    usuario = Usuario.query.filter_by(usuario=data[\"usuario\"]).first()\n    if usuario is not None and verify_password(usuario.contraseña, data[\"clave\"]):\n        # Store user information in session\n        session['user_id'] = usuario.id\n        session['nombre'] = usuario.nombre\n        session['rol'] = usuario.rol",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "def logout():\n    session.clear()\n    return redirect(url_for('auth_route.login'))",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -603,7 +1012,7 @@
         "kind": 5,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "administrador_schema = AdministradorSchema()\nadministradores_schema = AdministradorSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'  # Ensure you have a secret key for JWT\ndef generar_token_admin(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }",
+        "peekOfCode": "administrador_schema = AdministradorSchema()\nadministradores_schema = AdministradorSchema(many=True)\nuser_schema = UsuarioSchema()\nusers_schema = UsuarioSchema(many=True)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -612,7 +1021,43 @@
         "kind": 5,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "administradores_schema = AdministradorSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'  # Ensure you have a secret key for JWT\ndef generar_token_admin(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")",
+        "peekOfCode": "administradores_schema = AdministradorSchema(many=True)\nuser_schema = UsuarioSchema()\nusers_schema = UsuarioSchema(many=True)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "user_schema",
+        "kind": 5,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "user_schema = UsuarioSchema()\nusers_schema = UsuarioSchema(many=True)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "users_schema",
+        "kind": 5,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "users_schema = UsuarioSchema(many=True)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "empresa_schema",
+        "kind": 5,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }",
+        "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "empresas_schema",
+        "kind": 5,
+        "importPath": "controllers.Auth",
+        "description": "controllers.Auth",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\nruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -621,7 +1066,7 @@
         "kind": 5,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "ruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'  # Ensure you have a secret key for JWT\ndef generar_token_admin(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token",
+        "peekOfCode": "ruta_auth = Blueprint('auth_route', __name__)\nSECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -630,8 +1075,62 @@
         "kind": 5,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "SECRET_KEY = 'Bendiciones-para-todos'  # Ensure you have a secret key for JWT\ndef generar_token_admin(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token\n@ruta_auth.route('/login', methods=['GET'])",
+        "peekOfCode": "SECRET_KEY = 'Bendiciones-para-todos'\ndef generar_token(user_id):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token\n@ruta_auth.route('/ingreso-admin', methods=['POST'])",
         "detail": "controllers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "login_route",
+        "kind": 2,
+        "importPath": "controllers.Cliente",
+        "description": "controllers.Cliente",
+        "peekOfCode": "def login_route():\n    return render_template('cliente.html')",
+        "detail": "controllers.Cliente",
+        "documentation": {}
+    },
+    {
+        "label": "ruta_cliente",
+        "kind": 5,
+        "importPath": "controllers.Cliente",
+        "description": "controllers.Cliente",
+        "peekOfCode": "ruta_cliente = Blueprint('ruta_cliente', __name__)\n@ruta_cliente.route('/home', methods=['GET'])\ndef login_route():\n    return render_template('cliente.html')",
+        "detail": "controllers.Cliente",
+        "documentation": {}
+    },
+    {
+        "label": "register_empresa",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    # Extract data from the request\n    nombre = data.get('nombre')\n    direccion = data.get('direccion')",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "ruta_empresa",
+        "kind": 5,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "ruta_empresa = Blueprint('empresa_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "empresa_schema",
+        "kind": 5,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "empresas_schema",
+        "kind": 5,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    # Extract data from the request",
+        "detail": "controllers.Empresa",
         "documentation": {}
     },
     {
@@ -653,20 +1152,29 @@
         "documentation": {}
     },
     {
-        "label": "generar_token",
+        "label": "acceder_index",
         "kind": 2,
-        "importPath": "controllers.Usuarios",
-        "description": "controllers.Usuarios",
-        "peekOfCode": "def generar_token(user_id, rol):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n        \"rol\": rol\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token\n@ruta_user.route('/login', methods=['POST'])",
-        "detail": "controllers.Usuarios",
+        "importPath": "controllers.Indexes",
+        "description": "controllers.Indexes",
+        "peekOfCode": "def acceder_index():\n    return render_template('index2.html')",
+        "detail": "controllers.Indexes",
         "documentation": {}
     },
     {
-        "label": "login_user",
+        "label": "ruta_index",
+        "kind": 5,
+        "importPath": "controllers.Indexes",
+        "description": "controllers.Indexes",
+        "peekOfCode": "ruta_index = Blueprint('indexes_routes', __name__)\n@ruta_index.route('/acceder', methods=['GET'])\ndef acceder_index():\n    return render_template('index2.html')",
+        "detail": "controllers.Indexes",
+        "documentation": {}
+    },
+    {
+        "label": "login_route",
         "kind": 2,
         "importPath": "controllers.Usuarios",
         "description": "controllers.Usuarios",
-        "peekOfCode": "def login_user():\n    data = request.json\n    if not data[\"clave\"] or not data[\"usuario\"]:\n        return jsonify({\"error\": \"Uno o más campos están vacíos\"}), 400\n    usuario = Usuario.query.filter_by(usuario=data[\"usuario\"]).first()\n    if usuario is None or not verify_password(usuario.contraseña, data[\"clave\"]):\n        return jsonify({\"error\": \"Usuario o contraseña incorrectos\"}), 404\n    token = generar_token(usuario.id, usuario.rol)\n    response = jsonify({\"success\": True, \"token\": token, \"rol\": usuario.rol})\n    response.set_cookie('token', token)",
+        "peekOfCode": "def login_route():\n    return render_template('login.html')",
         "detail": "controllers.Usuarios",
         "documentation": {}
     },
@@ -675,16 +1183,7 @@
         "kind": 5,
         "importPath": "controllers.Usuarios",
         "description": "controllers.Usuarios",
-        "peekOfCode": "ruta_user = Blueprint('ruta_user', __name__)\nSECRET_KEY = 'your_secret_key'  # Ensure you have a secret key for JWT\ndef generar_token(user_id, rol):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n        \"rol\": rol\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")",
-        "detail": "controllers.Usuarios",
-        "documentation": {}
-    },
-    {
-        "label": "SECRET_KEY",
-        "kind": 5,
-        "importPath": "controllers.Usuarios",
-        "description": "controllers.Usuarios",
-        "peekOfCode": "SECRET_KEY = 'your_secret_key'  # Ensure you have a secret key for JWT\ndef generar_token(user_id, rol):\n    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=150)\n    payload = {\n        \"exp\": fecha_vencimiento,\n        \"user_id\": user_id,\n        \"rol\": rol\n    }\n    token = jwt.encode(payload, SECRET_KEY, algorithm=\"HS256\")\n    return token",
+        "peekOfCode": "ruta_user = Blueprint('ruta_user', __name__)\n@ruta_user.route('/login', methods=['GET'])\ndef login_route():\n    return render_template('login.html')",
         "detail": "controllers.Usuarios",
         "documentation": {}
     },
@@ -704,6 +1203,24 @@
         "description": "models.Administrador",
         "peekOfCode": "class AdministradorSchema(ma.Schema):\n    class Meta:\n        fields = ('id', 'nombre', 'usuario', 'contraseña')",
         "detail": "models.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "Empresa",
+        "kind": 6,
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "peekOfCode": "class Empresa(db.Model):\n    __tablename__ = \"empresas\"\n    id = db.Column(db.Integer, primary_key=True)\n    nombre = db.Column(db.String(255), unique=True)\n    direccion = db.Column(db.String(255))\n    telefono = db.Column(db.String(255))\n    email = db.Column(db.String(255), unique=True)\n    usuario = db.Column(db.String(255), unique=True)\n    contraseña = db.Column(db.String(255))\n    rol = db.Column(db.String(255), default='empresa')",
+        "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "EmpresaSchema",
+        "kind": 6,
+        "importPath": "models.Empresa",
+        "description": "models.Empresa",
+        "peekOfCode": "class EmpresaSchema(ma.Schema):\n    class Meta:\n        fields = ('id', 'nombre', 'direccion', 'telefono', 'email', 'usuario', 'contraseña', 'rol', 'nit', 'session_limit', 'general_discount', 'tax', 'profit_percentage', 'ultima_sesion', 'estado')",
+        "detail": "models.Empresa",
         "documentation": {}
     },
     {
@@ -729,7 +1246,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return redirect('/auth/login')\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html')\nif __name__ == '__main__':\n    app.run(debug=True)",
         "detail": "app",
         "documentation": {}
     }
