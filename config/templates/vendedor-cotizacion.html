@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendedor | COTIZACIÓN</title>
+    <link rel="stylesheet" href="../static/css/vendedor-cotizacion-style.css" />
+  </head>
+  <body>
+    <nav class="menu" tabindex="0">
+      <div class="smartphone-menu-trigger"></div>
+      <header class="avatar">
+        <img src="../static/img/foto_perfil.png" />
+        <h2 style="color: #070707; font-weight: bold">Pedrito</h2>
+        <h2 style="font-size: 15px; color: #070707">Vendedor</h2>
+      </header>
+      <div class="lista-iconos">
+        <a href="./vendedor-inicio.html" tabindex="0" class="icon-inicio"
+          ><span>Inicio</span></a
+        >
+        <a href="./vendedor-clientes.html" tabindex="0" class="icon-clientes"
+          ><span>Clientes</span></a
+        >
+        <a
+          href="./vendedor-cotizacion.html"
+          tabindex="0"
+          class="icon-cotizacion active"
+          ><span>Cotización</span></a
+        >
+        <a href="./vendedor-compra.html" tabindex="0" class="icon-compra"
+          ><span>Compra</span></a
+        >
+        <a href="./vendedor-stock.html" tabindex="0" class="icon-stock"
+          ><span>Stock</span></a
+        >
+        <a href="./vendedor-consultar.html" tabindex="0" class="icon-consultar"
+          ><span>Consultar</span></a
+        >
+      </div>
+
+      <div class="cerrar-sesion">
+        <a href="../templates/index.html" class="button-cerrar-sesion"
+          >Cerrar Sesión</a
+        >
+      </div>
+    </nav>
+    <div class="container">
+      <div class="new-cliente-container">
+        <div class="container-consultar"></div>
+        <h2 class="title">Cotización</h2>
+        <form class="new-cliente-form">
+          <div>
+            <label
+              class="labels"
+              for="codigo-producto"
+              style="white-space: nowrap"
+              >Código Producto:</label
+            >
+            <input
+              class="inputs"
+              type="text"
+              id="codigo-producto"
+              name="codigo-producto"
+            />
+          </div>
+          <div>
+            <label class="labels" for="cantidad">Cantidad:</label>
+            <input class="inputs" type="text" id="cantidad" name="cantidad" />
+          </div>
+        </form>
+        <button class="btn-aceptar" type="submit">Aceptar</button>
+      </div>
+    </div>
+  </body>
+</html>

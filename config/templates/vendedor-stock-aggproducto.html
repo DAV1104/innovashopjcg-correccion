@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendedor | STOCK-AGREGAR</title>
+    <link rel="stylesheet" href="../static/css/vendedor-stock-aggproducto.css" />
+  </head>
+  <body>
+    <nav class="menu" tabindex="0">
+      <div class="smartphone-menu-trigger"></div>
+      <header class="avatar">
+        <img src="../static/img/foto_perfil.png" />
+        <h2 style="color: #070707; font-weight: bold">Pedrito</h2>
+        <h2 style="font-size: 15px; color: #070707">Vendedor</h2>
+      </header>
+      <div class="lista-iconos">
+        <a href="./vendedor-inicio.html" tabindex="0" class="icon-inicio"
+          ><span>Inicio</span></a
+        >
+        <a href="./vendedor-compra.html" tabindex="0" class="icon-clientes"
+          ><span>Clientes</span></a
+        >
+        <a
+          href="./vendedor-cotizacion.html"
+          tabindex="0"
+          class="icon-cotizacion"
+          ><span>Cotización</span></a
+        >
+        <a href="./vendedor-compra.html" tabindex="0" class="icon-compra"
+          ><span>Compra</span></a
+        >
+        <a href="./vendedor-stock.html" tabindex="0" class="icon-stock active"
+          ><span>Stock</span></a
+        >
+        <a href="./vendedor-consultar.html" tabindex="0" class="icon-consultar"
+          ><span>Consultar</span></a
+        >
+      </div>
+
+      <div class="cerrar-sesion">
+        <a href="../templates/index.html" class="button-cerrar-sesion"
+          >Cerrar Sesión</a
+        >
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="new-cliente-container">
+        <h2 class="title">Stock</h2>
+        <form class="new-cliente-form">
+          <div class="labels">
+            <label for="codigo" style="white-space: nowrap;">Código:</label>
+            <label for="precio-unidad" style="white-space: nowrap;">Precio Unidad:</label>
+            <label for="precio-venta" style="white-space: nowrap;">Precio de Venta:</label>
+            <label for="cantidad-stock" style="white-space: nowrap;">Cantidad en Stock:</label>
+          </div>
+          <div class="inputs">
+            <input type="text" id="codigo" />
+            <input type="text" id="precio-unidad" />
+            <input type="text" id="precio-venta" />
+            <input type="text" id="cantidad-stock" />
+          </div>
+
+          <button class="btn-aceptar" type="submit">Aceptar</button>
+        </form>
+        <a href="../templates/vendedor-stock.html">
+          <button class="btn-volver">Volver</button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

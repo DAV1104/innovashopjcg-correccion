@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/descuentos-empresas-styles.css" />
+  <title>Descuentos Empresas</title>
+</head>
+
+<body>
+
+  <body>
+    <nav class="menu" tabindex="0">
+      <div class="smartphone-menu-trigger"></div>
+      <header class="avatar">
+        <img src="../static/img/icon-empresa.png" />
+        <h2 style="color: #070707; font-weight: bold">Ebay</h2>
+        <h2 style="font-size: 15px; color: #070707">Empresa</h2>
+      </header>
+      <ul>
+        <a href="inicio_empresas.html"><li id="inicio" href="inicio_empresas.html" tabindex="0" class="icon-inicio">
+          <span>Inicio</span>
+        </li></a>
+        <a href="descuentos-empresas.html"><li tabindex="0" class="icon-descuentos">
+          <span>Descuentos</span></a>
+        </li>
+        <a href="vendedores-empresas.html"><li tabindex="0" class="icon-vendedores"><span>Vendedores</span></li></a>
+        <a href="clientes-empresas.html"><li tabindex="0" class="icon-clientes"><span>Clientes</span></li></a>
+        <a href="stock-empresas.html"><li tabindex="0" class="icon-stock"><span>Stock</span></li></a>
+
+        <a href="cotizacion-empresas.html"><li tabindex="0" class="icon-cotizacion"><span>Cotizacion</span></li></a>
+
+        <a href="compras-empresas.html"><li tabindex="0" class="icon-compra"><span>Compra</span></li></a>
+      </ul>
+
+      <div class="Contenedor">
+        <a href="index.html" class="button-cerrar-sesion">Cerrar sesion</a>
+        <a href="index2.html" class="button-cambiar-cuenta">Cambiar cuenta</a>
+      </div>
+    </nav>
+
+    <div class="helper">
+      <div class="helper-container">
+        <h2 class="tittle">Descuentos</h2>
+
+        <div class="labels-box">
+          <div class="container-lbl-input"><label class="text" style="width: 29%;" for="porcentaje">Porcentaje de
+              descuento:</label>
+            <input type="text" id="porcentaje" />
+          </div>
+          <div class="container-lbl-input"> <label class="text" style="width: 30%;" for="inicio">A partir de:</label>
+            <input class="input-date" type="date" id="inicio" />
+          </div>
+          <div class="container-lbl-input2"><label class="text" style="width: 30%;" for="final">Hasta:</label>
+            <input class="input-date" type="date" id="final" />
+          </div>
+          <div>
+            <input class="Button-aplicar" type="button" onclick="Enviar()" value="Aplicar">
+          </div>
+
+        </div>
+        
+      </div>
+
+    </div>
+    
+    </div>
+
+
+  </body>
+</body>
+
+</html>
