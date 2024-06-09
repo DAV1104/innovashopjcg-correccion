@@ -149,8 +149,8 @@ div a.button-cerrar-sesion {
 }
 
 .container .search-bar input[type="search"] {
-  left: 35px;
-  top: 100px;
+  left: 5px;
+  top: 10px;
   position: absolute;
   margin: 10px;
   width: 30%;
@@ -164,7 +164,7 @@ div a.button-cerrar-sesion {
   background-color: #dadada;
   margin: 1.5%;
   height: 94%;
-  width: 94%;
+  width: 80vw !important;
   display: flex;
   flex-direction: column;
   border-radius: 20px;

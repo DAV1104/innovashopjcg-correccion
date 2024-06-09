@@ -6,7 +6,7 @@ from models.Modulos_Empresas import ModuloEmpresa
 from models.Usuario import Usuario
 from config.db import db
 from .hashing_helper import hash_password
-from datetime import datetime
+from datetime import datetime, timedelta
 
 ruta_empresa = Blueprint('empresa_route', __name__)
 
@@ -18,6 +18,45 @@ DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock',
 @ruta_empresa.route('/home', methods=['GET'])
 def show_home_enterprise():
     return render_template('empresas-templates/inicio_empresas.html')
+
+@ruta_empresa.route('/extender-sesion', methods=['POST'])
+def extender_sesion():
+    data = request.json
+    empresa_id = data.get('empresaId')
+    meses = data.get('meses')
+
+    if not empresa_id or not meses:
+        return jsonify({"error": "Datos incompletos"}), 400
+
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    try:
+        empresa.session_limit = empresa.session_limit + timedelta(days=int(meses) * 30)
+        db.session.commit()
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@ruta_empresa.route('/eliminar-empresa/<int:empresa_id>', methods=['DELETE'])
+def eliminar_empresa(empresa_id):
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    try:
+        # First delete related rows in modulosempresas
+        ModuloEmpresa.query.filter_by(empresa_id=empresa_id).delete()
+        db.session.commit()
+
+        # Then delete the empresa
+        db.session.delete(empresa)
+        db.session.commit()
+        return jsonify({"success": True})
+    except Exception as e:
+        db.session.rollback()  # Rollback in case of error
+        return jsonify({"error": str(e)}), 500
 
 @ruta_empresa.route('/clientes', methods=['GET'])
 def list_clientes():

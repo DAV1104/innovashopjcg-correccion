@@ -153,7 +153,7 @@ div a.button-cerrar-sesion {
   background-color: #dadada;
   margin: 1.5%;
   height: 94%;
-  width: 94%;
+  width: 80vw !important;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -247,6 +247,12 @@ input:checked + .slider:before {
   border: 1px solid #ddd;
   text-align: left;
 }
+
+.table-hover tbody tr.selected td {
+  background-color: #333333;
+  color: #ffffff;
+}
+
 
 .table th {
   background-color: #f2f2f2;

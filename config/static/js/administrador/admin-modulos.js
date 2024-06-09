@@ -48,16 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     const viewButton = document.createElement('button');
                     viewButton.classList.add('btn', 'btn-primary', 'btn-view-modules');
                     viewButton.textContent = 'Ver Modulos';
-                    viewButton.addEventListener('click', () => {
+                    viewButton.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        document.querySelectorAll('tbody tr').forEach(row => row.classList.remove('selected'));
+                        tr.classList.add('selected');
                         selectEmpresa(empresa.id);
                     });
                     accionesTd.appendChild(viewButton);
                     tr.appendChild(accionesTd);
-
-                    tr.addEventListener('click', () => {
-                        document.querySelectorAll('tr').forEach(row => row.classList.remove('selected'));
-                        tr.classList.add('selected');
-                    });
 
                     tableBody.appendChild(tr);
                 });

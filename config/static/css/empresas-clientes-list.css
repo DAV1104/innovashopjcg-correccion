@@ -158,39 +158,46 @@ body {
     font-size: 16px;
 }
 
-table {
-    margin: 1% 1%;
-    width: 98%;
-    position: relative;
+.helper-container {
+  background-color: #dadada;
+  margin: 1.5%;
+  height: 94%;
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: fixed;
+  align-items: center;
+  padding-top: 18vh;
+  overflow: hidden;
+  box-shadow: 0 0 10px #000000;
 }
 
-th,
-td {
-    padding: 6px;
-    text-align: center;
-    color: #000;
-}
-
-td {
-    cursor: pointer;
-}
-
-th {
-    color: #000000;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-    color: #000000;
-}
-
-.buttons button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
+.table-hover tbody tr:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .table-hover tbody tr.active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
 
 .btn-agregar {
     background-color: #8a8a8a;
