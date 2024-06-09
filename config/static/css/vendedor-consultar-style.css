@@ -27,7 +27,7 @@ main {
 .container-consultar {
   background-color: #ffffff;
   margin: 2%;
-  height: calc(43vh - -10px);
+  height: calc(55vh - -10px);
   width: calc(95vw - 315px);
   display: block;
   border-radius: 20px;
@@ -50,7 +50,7 @@ main {
   margin-top: 5%;
   position: relative;
   display: flex;
-  height: 75%;
+  height: 86%;
   margin: 2% 2% 2% 2%;
   margin-left: 3%;
   margin-right: 3%;
@@ -96,7 +96,7 @@ main {
   margin-bottom: 19px;
 }
 
-.btn-verlista {
+.btn-actualizar {
   background-color: #ffffff;
   color: #000000;
   margin-top: 10%;
@@ -111,6 +111,43 @@ main {
   left: 48%;
   transform: translateX(-50%);
   box-shadow: 0 0 4px;
+  text-decoration: none;
+}
+
+.btn-venta-general {
+  background-color: #ffffff;
+  color: #000000;
+  margin-top: 10%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1%;
+  margin-bottom: 20px;
+  left: 75%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 4px;
+  text-decoration: none;
+}
+
+.btn-venta-mes {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 10%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1%;
+  margin-bottom: 20px;
+  left: 20%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 4px;
+  text-decoration: none;
 }
 
 .btn-aceptar {

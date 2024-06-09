@@ -25,5 +25,25 @@ def index():
 def page_not_found(e):
     return render_template('404.html'), 404
 
+def create_default_admin():
+    default_admin_user = 'DabiAdmin'
+    default_admin_name = 'Dabisito'
+    default_admin_password = 'dabisito123'
+
+    existing_admin = Administrador.query.filter_by(usuario=default_admin_user).first()
+    if not existing_admin:
+        hashed_password = hash_password(default_admin_password)
+        new_admin = Administrador(
+            nombre=default_admin_name,
+            usuario=default_admin_user,
+            contraseña=hashed_password
+        )
+        db.session.add(new_admin)
+        db.session.commit()
+        print("Default admin created.")
+
 if __name__ == '__main__':
+    with app.app_context():
+        create_default_admin()
     app.run(debug=True)
+    

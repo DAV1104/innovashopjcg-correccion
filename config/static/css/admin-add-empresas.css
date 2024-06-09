@@ -11,7 +11,7 @@ main {
   height: 100vh;
 }
 
-#empresas{
+#empresas {
   background-color: #69696c;
 }
 
@@ -79,7 +79,6 @@ main {
   margin-bottom: 5px;
   margin-top: 20px;
 }
-
 
 .lista-iconos {
   display: flex;
@@ -180,7 +179,6 @@ div a.button-cerrar-sesion {
   box-shadow: 0 0 10px #000000;
 }
 
-
 .new-empresa-container {
   background-color: #f5f5f5;
   border-radius: 20px;
@@ -213,7 +211,6 @@ div a.button-cerrar-sesion {
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .new-empresa-form {
   width: 95%;
@@ -272,7 +269,7 @@ input.error {
   position: relative;
 }
 
-.labels{
+.labels {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -282,7 +279,7 @@ input.error {
   margin: 1px #000;
 }
 
-.inputs{
+.inputs {
   position: relative;
   display: flex;
   flex-direction: column;
