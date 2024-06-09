@@ -316,6 +316,7 @@ label {
 .btn:hover {
   background-color: #333333 !important;
 }
+
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {
     padding-left: 90px;

@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     axios.get('/admin/admin-info')
         .then(function(response) {
