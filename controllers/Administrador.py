@@ -29,6 +29,10 @@ def show_modules():
         empresas = Empresa.query.all()
     return render_template('admin-templates/admin-modulos.html', empresas=empresas)
 
+@ruta_admin.errorhandler(404)
+def page_not_found_admin(e):
+    return render_template('404.html'), 404
+
 @ruta_admin.route('/admin-empresas', methods=['GET'])
 def show_enterprises():
     query = request.args.get('query', '')

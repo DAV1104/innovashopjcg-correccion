@@ -166,6 +166,15 @@ div a.button-cerrar-sesion {
 .menu div a:focus {
   outline: none;
 }
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
 
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {

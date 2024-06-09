@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        let endpoint = "/user/login";
+        let endpoint = "/auth/login";
 
         console.log('Sending POST request to:', endpoint); // Debugging log
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else if (rol === 'cliente') {
                         window.location.href = "/cliente/home";
                     } else if (rol === 'empresa') {
-                        window.location.href = "/empresa";
+                        window.location.href = "/empresa/home";
                     } else {
                         Swal.fire({
                             icon: 'error',

@@ -1,8 +1,9 @@
-from flask import Blueprint, request, jsonify, session
+from flask import Blueprint, request, jsonify, session, render_template
 from models.Empresa import Empresa, EmpresaSchema
 from models.Administrador import Administrador
 from models.Modulos import Modulo
 from models.Modulos_Empresas import ModuloEmpresa
+from models.Usuario import Usuario
 from config.db import db
 from .hashing_helper import hash_password
 from datetime import datetime
@@ -13,6 +14,15 @@ empresa_schema = EmpresaSchema()
 empresas_schema = EmpresaSchema(many=True)
 
 DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']
+
+@ruta_empresa.route('/home', methods=['GET'])
+def show_home_enterprise():
+    return render_template('empresas-templates/inicio_empresas.html')
+
+@ruta_empresa.route('/clientes', methods=['GET'])
+def list_clientes():
+    usuarios = Usuario.query.all()
+    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)
 
 @ruta_empresa.route('/register', methods=['POST'])
 def register_empresa():

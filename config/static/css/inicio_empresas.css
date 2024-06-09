@@ -3,10 +3,12 @@ body {
     margin: 0;
     font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
     color: #fff;
-    padding-left: 240px;
+    padding-left: 150px;
+    overflow: hidden;
   }
   
   main {
+    margin-top: 30px;
     position: relative;
     height: 100vh;
   }
@@ -14,9 +16,9 @@ body {
   .helper {
     background-color: #dadada;
     position: relative;
-    margin: 0 auto;
+    margin-left: 125px;
     height: calc(100vh - 60px);
-    width: calc(80vw - 50px);
+    width: calc(85vw - 45px);
     display: flex;
     border-radius: 20px;
     align-items: center;

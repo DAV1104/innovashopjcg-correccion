@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, render_template, redirect, request, jsonify, session, url_for
+from flask import Blueprint, Flask, render_template, redirect, request, jsonify, session, url_for, abort
 from models.Administrador import Administrador, AdministradorSchema
 from models.Usuario import Usuario, UsuarioSchema
 from models.Empresa import Empresa, EmpresaSchema
@@ -65,7 +65,7 @@ def login_user():
         session['nombre'] = usuario.nombre
         session['rol'] = usuario.rol
 
-        token = generar_token(usuario.id, usuario.rol)
+        token = generar_token(usuario.id)
         response = jsonify({"success": True, "token": token, "rol": usuario.rol})
         response.set_cookie('token', token)
         return response
@@ -78,12 +78,12 @@ def login_user():
         session['nombre'] = empresa.nombre
         session['rol'] = empresa.rol
 
-        token = generar_token(empresa.id, empresa.rol)
+        token = generar_token(empresa.id)
         response = jsonify({"success": True, "token": token, "rol": empresa.rol})
         response.set_cookie('token', token)
         return response
 
-    return jsonify({"error": "Usuario o contraseña incorrectos"}), 404
+    abort(404, description="Usuario o contraseña incorrectos")
 
 @ruta_auth.route('/logout', methods=['GET'])
 def logout():

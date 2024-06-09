@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/404.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">InnovaShop</a>
+      </div>
+    </nav>
+    <div class="message-father">
+      <div class="message-container">
+        <h1>Oops!</h1>
+        <p>We can't seem to find the page you're looking for.</p>
+        <p>Error code: 404</p>
+        <button class="button" id="go-back">Go Back</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById('go-back').addEventListener('click', function() {
+        window.history.back();
+      });
+    </script>
+  </body>
+</html>

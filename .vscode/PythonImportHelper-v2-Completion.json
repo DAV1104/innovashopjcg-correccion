@@ -112,6 +112,14 @@
         "documentation": {}
     },
     {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Blueprint",
         "importPath": "flask",
         "description": "flask",
@@ -201,6 +209,14 @@
     },
     {
         "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -809,6 +825,14 @@
         "documentation": {}
     },
     {
+        "label": "Usuario",
+        "importPath": "models.Usuario",
+        "description": "models.Usuario",
+        "isExtraImport": true,
+        "detail": "models.Usuario",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioSchema",
         "importPath": "models.Usuario",
         "description": "models.Usuario",
@@ -985,6 +1009,15 @@
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
         "peekOfCode": "def show_modules():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()\n    else:\n        empresas = Empresa.query.all()\n    return render_template('admin-templates/admin-modulos.html', empresas=empresas)",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "page_not_found_admin",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def page_not_found_admin(e):\n    return render_template('404.html'), 404\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -1196,6 +1229,24 @@
         "documentation": {}
     },
     {
+        "label": "show_home_enterprise",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def show_home_enterprise():\n    return render_template('empresas-templates/inicio_empresas.html')\n@ruta_empresa.route('/clientes', methods=['GET'])\ndef list_clientes():\n    usuarios = Usuario.query.all()\n    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "list_clientes",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def list_clientes():\n    usuarios = Usuario.query.all()\n    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
         "label": "register_empresa",
         "kind": 2,
         "importPath": "controllers.Empresa",
@@ -1245,7 +1296,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "ruta_empresa = Blueprint('empresa_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403",
+        "peekOfCode": "ruta_empresa = Blueprint('empresa_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/home', methods=['GET'])\ndef show_home_enterprise():\n    return render_template('empresas-templates/inicio_empresas.html')\n@ruta_empresa.route('/clientes', methods=['GET'])\ndef list_clientes():\n    usuarios = Usuario.query.all()",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1254,7 +1305,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/home', methods=['GET'])\ndef show_home_enterprise():\n    return render_template('empresas-templates/inicio_empresas.html')\n@ruta_empresa.route('/clientes', methods=['GET'])\ndef list_clientes():\n    usuarios = Usuario.query.all()\n    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1263,7 +1314,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    nombre = data.get('nombre')",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/home', methods=['GET'])\ndef show_home_enterprise():\n    return render_template('empresas-templates/inicio_empresas.html')\n@ruta_empresa.route('/clientes', methods=['GET'])\ndef list_clientes():\n    usuarios = Usuario.query.all()\n    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)\n@ruta_empresa.route('/register', methods=['POST'])",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1272,7 +1323,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    nombre = data.get('nombre')\n    direccion = data.get('direccion')",
+        "peekOfCode": "DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/home', methods=['GET'])\ndef show_home_enterprise():\n    return render_template('empresas-templates/inicio_empresas.html')\n@ruta_empresa.route('/clientes', methods=['GET'])\ndef list_clientes():\n    usuarios = Usuario.query.all()\n    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1425,7 +1476,16 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return render_template('index.html')\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.errorhandler(404)\ndef page_not_found(e):\n    return render_template('404.html'), 404\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "page_not_found",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def page_not_found(e):\n    return render_template('404.html'), 404\nif __name__ == '__main__':\n    app.run(debug=True)",
         "detail": "app",
         "documentation": {}
     }
