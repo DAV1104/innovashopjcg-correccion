@@ -44,7 +44,7 @@
                 <input type="search" name="query" placeholder="Buscar..." />
             </form>
         </div>
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Cédula</th>
@@ -53,15 +53,7 @@
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>
-                {% for usuario in usuarios %}
-                <tr>
-                    <td>{{ usuario.cedula }}</td>
-                    <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
-                    <td>{{ usuario.telefono }}</td>
-                    <td>{{ usuario.email }}</td>
-                </tr>
-                {% endfor %}
+            <tbody id="companies-list">
             </tbody>
         </table>
     </div>
