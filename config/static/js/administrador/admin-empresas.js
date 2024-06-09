@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+    axios.get('/admin/admin-info')
+        .then(function(response) {
+            document.getElementById('admin-name').textContent = response.data.nombre;
+        })
+        .catch(function(error) {
+            console.error('Error fetching admin info:', error);
+            document.getElementById('admin-name').textContent = 'Error';
+        });
+
+
     const searchInput = document.querySelector('.search-bar input[name="query"]');
+    const agregarButton = document.querySelector('.btn-agregar');
     let selectedNit = null;
     let selectedNombre = null;
 
@@ -82,6 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.btn-deshabilitar').addEventListener('click', () => {
         updateEmpresaEstado('inactivo');
+    });
+
+    agregarButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.href = '/admin/admin-add-empresas';
     });
 
     searchInput.addEventListener('input', performSearch);

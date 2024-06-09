@@ -417,6 +417,14 @@
         "documentation": {}
     },
     {
+        "label": "Administrador",
+        "importPath": "models.Administrador",
+        "description": "models.Administrador",
+        "isExtraImport": true,
+        "detail": "models.Administrador",
+        "documentation": {}
+    },
+    {
         "label": "Empresa",
         "importPath": "models.Empresa",
         "description": "models.Empresa",
@@ -522,6 +530,54 @@
     },
     {
         "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "importPath": "config.db",
+        "description": "config.db",
+        "isExtraImport": true,
+        "detail": "config.db",
+        "documentation": {}
+    },
+    {
+        "label": "app",
         "importPath": "config.db",
         "description": "config.db",
         "isExtraImport": true,
@@ -770,6 +826,22 @@
         "documentation": {}
     },
     {
+        "label": "Modulo",
+        "importPath": "models.Modulos",
+        "description": "models.Modulos",
+        "isExtraImport": true,
+        "detail": "models.Modulos",
+        "documentation": {}
+    },
+    {
+        "label": "ModuloEmpresa",
+        "importPath": "models.Modulos_Empresas",
+        "description": "models.Modulos_Empresas",
+        "isExtraImport": true,
+        "detail": "models.Modulos_Empresas",
+        "documentation": {}
+    },
+    {
         "label": "hashlib",
         "kind": 6,
         "isExtraImport": true,
@@ -825,6 +897,14 @@
         "description": "controllers.Empresa",
         "isExtraImport": true,
         "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "importPath": "controllers.hashing_helper",
+        "description": "controllers.hashing_helper",
+        "isExtraImport": true,
+        "detail": "controllers.hashing_helper",
         "documentation": {}
     },
     {
@@ -886,7 +966,25 @@
         "kind": 2,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "def homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()",
+        "peekOfCode": "def homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-percentages')\ndef show_percentages():\n    return render_template('admin-templates/admin-percentages.html')\n@ruta_admin.route('/admin-modulos')\ndef show_modules():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "show_percentages",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def show_percentages():\n    return render_template('admin-templates/admin-percentages.html')\n@ruta_admin.route('/admin-modulos')\ndef show_modules():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()",
+        "detail": "controllers.Administrador",
+        "documentation": {}
+    },
+    {
+        "label": "show_modules",
+        "kind": 2,
+        "importPath": "controllers.Administrador",
+        "description": "controllers.Administrador",
+        "peekOfCode": "def show_modules():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |\n            (Empresa.nit.contains(query))\n        ).all()\n    else:\n        empresas = Empresa.query.all()\n    return render_template('admin-templates/admin-modulos.html', empresas=empresas)",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -949,7 +1047,7 @@
         "kind": 5,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "ruta_admin = Blueprint('admin_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:",
+        "peekOfCode": "ruta_admin = Blueprint('admin_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-percentages')\ndef show_percentages():\n    return render_template('admin-templates/admin-percentages.html')\n@ruta_admin.route('/admin-modulos')",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -958,7 +1056,7 @@
         "kind": 5,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-percentages')\ndef show_percentages():\n    return render_template('admin-templates/admin-percentages.html')\n@ruta_admin.route('/admin-modulos')\ndef show_modules():",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -967,7 +1065,7 @@
         "kind": 5,
         "importPath": "controllers.Administrador",
         "description": "controllers.Administrador",
-        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-empresas', methods=['GET'])\ndef show_enterprises():\n    query = request.args.get('query', '')\n    if query:\n        empresas = Empresa.query.filter(\n            (Empresa.nombre.contains(query)) |",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\n@ruta_admin.route('/home')\ndef homeadmin():\n    return render_template('admin-templates/admin.html')\n@ruta_admin.route('/admin-percentages')\ndef show_percentages():\n    return render_template('admin-templates/admin-percentages.html')\n@ruta_admin.route('/admin-modulos')\ndef show_modules():\n    query = request.args.get('query', '')",
         "detail": "controllers.Administrador",
         "documentation": {}
     },
@@ -1003,7 +1101,7 @@
         "kind": 2,
         "importPath": "controllers.Auth",
         "description": "controllers.Auth",
-        "peekOfCode": "def logout():\n    session.clear()\n    return redirect(url_for('auth_route.login'))",
+        "peekOfCode": "def logout():\n    session.clear()\n    return redirect(url_for('admin_route.login'))",
         "detail": "controllers.Auth",
         "documentation": {}
     },
@@ -1102,7 +1200,43 @@
         "kind": 2,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "def register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    # Extract data from the request\n    nombre = data.get('nombre')\n    direccion = data.get('direccion')",
+        "peekOfCode": "def register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    nombre = data.get('nombre')\n    direccion = data.get('direccion')\n    telefono = data.get('telefono')\n    email = data.get('email')",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "get_modules_for_company",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def get_modules_for_company(empresa_id):\n    empresa = Empresa.query.get(empresa_id)\n    if not empresa:\n        return jsonify({\"error\": \"Empresa no encontrada\"}), 404\n    modules = db.session.query(Modulo.nombre, ModuloEmpresa.estado).join(ModuloEmpresa, Modulo.id == ModuloEmpresa.modulo_id).filter(ModuloEmpresa.empresa_id == empresa_id).all()\n    module_status = {module.nombre: module.estado for module in modules}\n    return jsonify({\"modules\": module_status})\n@ruta_empresa.route('/update-module-status', methods=['POST'])\ndef update_module_status():\n    data = request.json",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "update_module_status",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def update_module_status():\n    data = request.json\n    empresa_id = data.get('empresaId')\n    modulo_nombre = data.get('moduloNombre')\n    estado = data.get('estado')\n    empresa = Empresa.query.get(empresa_id)\n    if not empresa:\n        return jsonify({\"error\": \"Empresa no encontrada\"}), 404\n    modulo = Modulo.query.filter_by(nombre=modulo_nombre).first()\n    if not modulo:",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "get_percentages_for_company",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def get_percentages_for_company(empresa_id):\n    empresa = Empresa.query.get(empresa_id)\n    if not empresa:\n        return jsonify({\"error\": \"Empresa no encontrada\"}), 404\n    return jsonify({\n        \"iva\": empresa.tax,\n        \"ganancia\": empresa.profit_percentage\n    })\n@ruta_empresa.route('/update-percentages', methods=['POST'])\ndef update_percentages():",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "update_percentages",
+        "kind": 2,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "def update_percentages():\n    data = request.json\n    empresa_id = data.get('empresaId')\n    iva = data.get('iva')\n    ganancia = data.get('ganancia')\n    empresa = Empresa.query.get(empresa_id)\n    if not empresa:\n        return jsonify({\"error\": \"Empresa no encontrada\"}), 404\n    empresa.tax = iva\n    empresa.profit_percentage = ganancia",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1111,7 +1245,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "ruta_empresa = Blueprint('empresa_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403",
+        "peekOfCode": "ruta_empresa = Blueprint('empresa_route', __name__)\nempresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1120,7 +1254,7 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json",
+        "peekOfCode": "empresa_schema = EmpresaSchema()\nempresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1129,7 +1263,16 @@
         "kind": 5,
         "importPath": "controllers.Empresa",
         "description": "controllers.Empresa",
-        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    # Check if the current user is an admin\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    # Extract data from the request",
+        "peekOfCode": "empresas_schema = EmpresaSchema(many=True)\nDEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    nombre = data.get('nombre')",
+        "detail": "controllers.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MODULES",
+        "kind": 5,
+        "importPath": "controllers.Empresa",
+        "description": "controllers.Empresa",
+        "peekOfCode": "DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']\n@ruta_empresa.route('/register', methods=['POST'])\ndef register_empresa():\n    admin_id = session.get('user_id')\n    admin = Administrador.query.get(admin_id)\n    if not admin:\n        return jsonify({\"error\": \"Access denied\"}), 403\n    data = request.json\n    nombre = data.get('nombre')\n    direccion = data.get('direccion')",
         "detail": "controllers.Empresa",
         "documentation": {}
     },
@@ -1138,7 +1281,7 @@
         "kind": 2,
         "importPath": "controllers.hashing_helper",
         "description": "controllers.hashing_helper",
-        "peekOfCode": "def hash_password(password):\n    salt = os.urandom(16)\n    salted_password = password.encode('utf-8') + salt\n    md5_hash = hashlib.md5(salted_password).hexdigest()\n    return salt.hex() + md5_hash\n#verifica la contraseña mediante ingenieria inversa de lo anterior\ndef verify_password(stored_password, provided_password):\n    try:\n        salt = bytes.fromhex(stored_password[:32])\n        stored_hash = stored_password[32:]",
+        "peekOfCode": "def hash_password(password):\n    salt = os.urandom(16)\n    salted_password = password.encode('utf-8') + salt\n    sha256_hash = hashlib.sha256(salted_password).hexdigest()\n    return salt.hex() + sha256_hash\n# Verifies the password by reverse engineering the above\ndef verify_password(stored_password, provided_password):\n    try:\n        salt = bytes.fromhex(stored_password[:32])\n        stored_hash = stored_password[32:]",
         "detail": "controllers.hashing_helper",
         "documentation": {}
     },
@@ -1147,7 +1290,7 @@
         "kind": 2,
         "importPath": "controllers.hashing_helper",
         "description": "controllers.hashing_helper",
-        "peekOfCode": "def verify_password(stored_password, provided_password):\n    try:\n        salt = bytes.fromhex(stored_password[:32])\n        stored_hash = stored_password[32:]\n        salted_password = provided_password.encode('utf-8') + salt\n        md5_hash = hashlib.md5(salted_password).hexdigest()\n        return stored_hash == md5_hash\n    except ValueError:\n        return stored_password == provided_password",
+        "peekOfCode": "def verify_password(stored_password, provided_password):\n    try:\n        salt = bytes.fromhex(stored_password[:32])\n        stored_hash = stored_password[32:]\n        salted_password = provided_password.encode('utf-8') + salt\n        sha256_hash = hashlib.sha256(salted_password).hexdigest()\n        return stored_hash == sha256_hash\n    except ValueError:\n        return stored_password == provided_password",
         "detail": "controllers.hashing_helper",
         "documentation": {}
     },
@@ -1221,6 +1364,42 @@
         "description": "models.Empresa",
         "peekOfCode": "class EmpresaSchema(ma.Schema):\n    class Meta:\n        fields = ('id', 'nombre', 'direccion', 'telefono', 'email', 'usuario', 'contraseña', 'rol', 'nit', 'session_limit', 'general_discount', 'tax', 'profit_percentage', 'ultima_sesion', 'estado')",
         "detail": "models.Empresa",
+        "documentation": {}
+    },
+    {
+        "label": "Modulo",
+        "kind": 6,
+        "importPath": "models.Modulos",
+        "description": "models.Modulos",
+        "peekOfCode": "class Modulo(db.Model):\n    __tablename__ = \"modulos\"\n    id = db.Column(db.Integer, primary_key=True)\n    nombre = db.Column(db.String(255), unique=True, nullable=False)\n    descripcion = db.Column(db.String(255))\n    def __init__(self, nombre, descripcion):\n        self.nombre = nombre\n        self.descripcion = descripcion\nwith app.app_context():\n    db.create_all()",
+        "detail": "models.Modulos",
+        "documentation": {}
+    },
+    {
+        "label": "ModuloSchema",
+        "kind": 6,
+        "importPath": "models.Modulos",
+        "description": "models.Modulos",
+        "peekOfCode": "class ModuloSchema(ma.Schema):\n    class Meta:\n        fields = ('id', 'nombre', 'descripcion')",
+        "detail": "models.Modulos",
+        "documentation": {}
+    },
+    {
+        "label": "ModuloEmpresa",
+        "kind": 6,
+        "importPath": "models.Modulos_Empresas",
+        "description": "models.Modulos_Empresas",
+        "peekOfCode": "class ModuloEmpresa(db.Model):\n    __tablename__ = \"modulosempresas\"\n    id = db.Column(db.Integer, primary_key=True)\n    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.id'), nullable=False)\n    modulo_id = db.Column(db.Integer, db.ForeignKey('modulos.id'), nullable=False)\n    estado = db.Column(db.Boolean, default=False)\n    def __init__(self, empresa_id, modulo_id, estado=False):\n        self.empresa_id = empresa_id\n        self.modulo_id = modulo_id\n        self.estado = estado",
+        "detail": "models.Modulos_Empresas",
+        "documentation": {}
+    },
+    {
+        "label": "ModuloEmpresaSchema",
+        "kind": 6,
+        "importPath": "models.Modulos_Empresas",
+        "description": "models.Modulos_Empresas",
+        "peekOfCode": "class ModuloEmpresaSchema(ma.Schema):\n    class Meta:\n        fields = ('id', 'empresa_id', 'modulo_id', 'estado')",
+        "detail": "models.Modulos_Empresas",
         "documentation": {}
     },
     {

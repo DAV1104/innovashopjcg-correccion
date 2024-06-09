@@ -13,6 +13,22 @@ empresas_schema = EmpresaSchema(many=True)
 def homeadmin():
     return render_template('admin-templates/admin.html')
 
+@ruta_admin.route('/admin-percentages')
+def show_percentages():
+    return render_template('admin-templates/admin-percentages.html')
+
+@ruta_admin.route('/admin-modulos')
+def show_modules():
+    query = request.args.get('query', '')
+    if query:
+        empresas = Empresa.query.filter(
+            (Empresa.nombre.contains(query)) |
+            (Empresa.nit.contains(query))
+        ).all()
+    else:
+        empresas = Empresa.query.all()
+    return render_template('admin-templates/admin-modulos.html', empresas=empresas)
+
 @ruta_admin.route('/admin-empresas', methods=['GET'])
 def show_enterprises():
     query = request.args.get('query', '')
@@ -52,6 +68,7 @@ def update_empresa_estado():
     db.session.commit()
 
     return jsonify({"success": True})
+
 
 @ruta_admin.route('/admin-add-empresas', methods=['GET'])
 def show_add_enterprises():

@@ -18,6 +18,9 @@ class Empresa(db.Model):
     profit_percentage = db.Column(db.Float, default=0.0)
     ultima_sesion = db.Column(db.DateTime, default=datetime.utcnow)
     estado = db.Column(db.String(50), default='activo')
+    # modulo_clientes = dbColumn(db.Boolean, default=True)
+    # modulo_vendedores = dbColumn(db.Boolean, default=True)
+    # modulo_porcentajes = dbColumn(db.Boolean, default=True)
 
     def __init__(self, nombre, direccion, telefono, email, usuario, contraseña, nit, session_limit, general_discount, tax, profit_percentage):
         self.nombre = nombre

@@ -88,4 +88,4 @@ def login_user():
 @ruta_auth.route('/logout', methods=['GET'])
 def logout():
     session.clear()
-    return redirect(url_for('auth_route.login'))
+    return redirect(url_for('admin_route.login'))

@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify, session
 from models.Empresa import Empresa, EmpresaSchema
 from models.Administrador import Administrador
+from models.Modulos import Modulo
+from models.Modulos_Empresas import ModuloEmpresa
 from config.db import db
 from .hashing_helper import hash_password
 from datetime import datetime
@@ -10,17 +12,16 @@ ruta_empresa = Blueprint('empresa_route', __name__)
 empresa_schema = EmpresaSchema()
 empresas_schema = EmpresaSchema(many=True)
 
+DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']
+
 @ruta_empresa.route('/register', methods=['POST'])
 def register_empresa():
-    # Check if the current user is an admin
     admin_id = session.get('user_id')
     admin = Administrador.query.get(admin_id)
     if not admin:
         return jsonify({"error": "Access denied"}), 403
 
     data = request.json
-
-    # Extract data from the request
     nombre = data.get('nombre')
     direccion = data.get('direccion')
     telefono = data.get('telefono')
@@ -33,7 +34,6 @@ def register_empresa():
     tax = data.get('tax', 0.0)
     profit_percentage = data.get('profit_percentage', 0.0)
 
-    # Check for existing enterprise
     existing_empresa = Empresa.query.filter(
         (Empresa.nombre == nombre) | 
         (Empresa.usuario == usuario) | 
@@ -44,10 +44,8 @@ def register_empresa():
     if existing_empresa:
         return jsonify({"error": "La empresa ya existe con el mismo nombre, usuario, email o NIT"}), 409
 
-    # Convert session_limit to datetime
     session_limit_date = datetime.strptime(session_limit, '%Y-%m-%d') if session_limit else None
 
-    # Create new Empresa
     new_empresa = Empresa(
         nombre=nombre,
         direccion=direccion,
@@ -62,8 +60,87 @@ def register_empresa():
         profit_percentage=profit_percentage
     )
 
-    # Add to database
     db.session.add(new_empresa)
     db.session.commit()
 
+    for module_name in DEFAULT_MODULES:
+        modulo = Modulo.query.filter_by(nombre=module_name).first()
+        if not modulo:
+            modulo = Modulo(nombre=module_name, descripcion=module_name)
+            db.session.add(modulo)
+            db.session.commit()
+
+        modulo_empresa = ModuloEmpresa(empresa_id=new_empresa.id, modulo_id=modulo.id)
+        db.session.add(modulo_empresa)
+    
+    db.session.commit()
+
     return empresa_schema.jsonify(new_empresa)
+
+
+@ruta_empresa.route('/<int:empresa_id>/modules', methods=['GET'])
+def get_modules_for_company(empresa_id):
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    modules = db.session.query(Modulo.nombre, ModuloEmpresa.estado).join(ModuloEmpresa, Modulo.id == ModuloEmpresa.modulo_id).filter(ModuloEmpresa.empresa_id == empresa_id).all()
+    module_status = {module.nombre: module.estado for module in modules}
+
+    return jsonify({"modules": module_status})
+
+
+
+@ruta_empresa.route('/update-module-status', methods=['POST'])
+def update_module_status():
+    data = request.json
+    empresa_id = data.get('empresaId')
+    modulo_nombre = data.get('moduloNombre')
+    estado = data.get('estado')
+
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    modulo = Modulo.query.filter_by(nombre=modulo_nombre).first()
+    if not modulo:
+        return jsonify({"error": "Modulo no encontrado"}), 404
+
+    modulo_empresa = ModuloEmpresa.query.filter_by(empresa_id=empresa.id, modulo_id=modulo.id).first()
+    if not modulo_empresa:
+        return jsonify({"error": "Relación Empresa-Modulo no encontrada"}), 404
+
+    modulo_empresa.estado = estado
+    db.session.commit()
+
+    return jsonify({"success": "Estado del módulo actualizado correctamente"})
+
+@ruta_empresa.route('/<int:empresa_id>/percentages', methods=['GET'])
+def get_percentages_for_company(empresa_id):
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    return jsonify({
+        "iva": empresa.tax,
+        "ganancia": empresa.profit_percentage
+    })
+
+@ruta_empresa.route('/update-percentages', methods=['POST'])
+def update_percentages():
+    data = request.json
+    empresa_id = data.get('empresaId')
+    iva = data.get('iva')
+    ganancia = data.get('ganancia')
+
+    empresa = Empresa.query.get(empresa_id)
+    if not empresa:
+        return jsonify({"error": "Empresa no encontrada"}), 404
+
+    empresa.tax = iva
+    empresa.profit_percentage = ganancia
+    db.session.commit()
+
+    return jsonify({"success": "Percentages updated successfully"})
+
+

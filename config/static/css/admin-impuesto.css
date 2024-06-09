@@ -175,53 +175,35 @@ div a.button-cerrar-sesion {
   box-shadow: 0 0 10px #000000;
 }
 
-ul {
+.btn-ver-modulos {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.btn-ver-modulos:hover {
+  background-color: #333333 !important;
+}
+
+.table {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
-  margin-right: 30px;
-  max-height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-ul header {
-  display: flex;
-  margin-right: 460px;
+.table th, .table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-ul header h3 {
-  margin-left: 490px;
-}
-
-ul li {
-  background-color: #a1a1a1;
-  width: 90%;
-  border-radius: 30px;
-  margin-bottom: 10px;
-  padding: 10px;
-  padding-bottom: 10px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-
-ul li:active{
-  background-color: #000000;
-  color: #ffffff;
-  transition: background-color;
-}
-
-ul .column2 {
-  position: relative;
-  left: 685px;
-}
-
-ul .column1 {
-  position: relative;
-  left: 230px;
+.table th {
+  background-color: #f2f2f2;
+  color: #333;
 }
 
 .container .accordion {
@@ -268,6 +250,10 @@ ul .column1 {
 .container .accordion .accordion-button {
   background-color: #69696c;
   color: white;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (max-width: 900px) and (min-width: 400px) {

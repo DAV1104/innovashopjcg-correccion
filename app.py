@@ -6,6 +6,8 @@ from controllers.Administrador import ruta_admin
 from controllers.Usuarios import ruta_user
 from controllers.Indexes import ruta_index  
 from controllers.Empresa import ruta_empresa  # Import the new Empresa controller
+from controllers.hashing_helper import hash_password
+from models.Administrador import Administrador
 
 # Register blueprints
 app.register_blueprint(ruta_auth, url_prefix="/auth")

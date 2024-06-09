@@ -11,8 +11,8 @@
         <div class="smartphone-menu-trigger"></div>
         <header class="avatar">
             <img src="{{ url_for('static', filename='img/foto_perfil.png') }}" />
-            <h2 style="color: #070707; font-weight: bold">{{ usuario }}</h2>
-            <h2 style="font-size: 15px; color: #070707">Admin</h2>
+            <h2 id="admin-name" style="color: #070707; font-weight: bold">Loading...</h2>
+            <h2 style="font-size: 15px; color: #070707">Administrador</h2>
         </header>
         <div class="lista-iconos">
             <a href="/admin/home" tabindex="0" class="icon-inicio">
@@ -21,7 +21,7 @@
             <a href="/admin/admin-empresas" tabindex="0" class="icon-empresas">
                 <span>Empresas</span>
             </a>
-            <a href="admin-modulos.html" class="icon-stock"><span>Modulos</span></a>
+            <a href="/admin/admin-modulos" class="icon-stock"><span>Modulos</span></a>
             <a href="admin-impuesto.html" class="icon-impuesto"><span>Percentages</span></a>
             <a href="admin-bdds.html" class="icon-bdd"><span>BDD</span></a>
         </div>
@@ -31,12 +31,14 @@
     </nav>
     <div class="container">
         <div class="search-bar">
-            <input type="search" name="query" placeholder="Buscar..." />
+            <form method="GET" action="#">
+                <input type="search" name="query" placeholder="Buscar..." />
+            </form>
         </div>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>NIT</th>
                     <th>Nombre</th>
                     <th>Estado</th>
                     <th>Ultima Sesion</th>
@@ -45,7 +47,7 @@
             </thead>
             <tbody>
                 {% for empresa in empresas %}
-                <tr data-nit="{{ empresa.nit }}" data-nombre="{{ empresa.nombre }}">
+                <tr>
                     <td>{{ empresa.nit }}</td>
                     <td>{{ empresa.nombre }}</td>
                     <td>

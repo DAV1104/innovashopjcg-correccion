@@ -227,54 +227,32 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-ul {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
-  margin-right: 30px;
-  max-height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.table-hover tbody tr:hover {
+  background-color: #f0f0f0;
 }
 
-ul header {
-  display: flex;
-  margin-right: 460px;
-}
-
-ul header h3 {
-  margin-left: 490px;
-}
-
-ul li {
-  background-color: #a1a1a1;
-  width: 90%;
-  border-radius: 30px;
-  margin-bottom: 10px;
-  padding: 10px;
-  padding-bottom: 10px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-
-ul li:active{
+.table-hover tbody tr.active {
   background-color: #000000;
   color: #ffffff;
-  transition: background-color;
 }
 
-ul .column2 {
-  position: relative;
-  left: 685px;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-ul .column1 {
-  position: relative;
-  left: 230px;
+.table th, .table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
+
+.table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
 .container .search-bar {
   margin-bottom: 30px;
 }
@@ -291,17 +269,17 @@ ul .column1 {
   font-size: 16px;
 }
 
-.container .accordion{
+.container .accordion {
   width: 95%;
 }
 
-.container .accordion .accordion-body .labels{
+.container .accordion .accordion-body .labels {
   display: flex;
   flex-direction: column;
   position: absolute;
 }
 
-.container .accordion .accordion-body .sliders{
+.container .accordion .accordion-body .sliders {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -312,7 +290,7 @@ ul .column1 {
   margin-bottom: 10px;
 }
 
-label{
+label {
   margin-bottom: 15px;
 }
 
@@ -321,6 +299,23 @@ label{
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
+.btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.btn:hover {
+  background-color: #333333 !important;
+}
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {
     padding-left: 90px;
