@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = '/acceder';
+    });
+    
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 

@@ -108,6 +108,7 @@ div a.button-cerrar-sesion {
   border: 2px solid #ffffff;
   border-radius: 5px;
   transition: all 0.3s ease;
+  background-color: white;
 }
 
 .button-cerrar-sesion:hover {
@@ -252,15 +253,16 @@ div a.button-cerrar-sesion {
   position: relative;
 }
 
-.percentages .iva-container{
+.percentages .iva{
   margin-left: 40px;
 }
 
 .percentages input {
-  width: 210px;
+  text-align: center;
+  width: 56px;
   padding: 10px;
   border-width: 1px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 16px;
   margin: 4px;
 }
@@ -274,7 +276,7 @@ div a.button-cerrar-sesion {
   font-size: 16px;
   cursor: pointer;
   margin-top: 8px;
-  margin-left: 70px;
+  margin-left: 15px;
 }
 
 .container .accordion .accordion-button {

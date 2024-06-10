@@ -5,15 +5,15 @@ from controllers.Auth import ruta_auth
 from controllers.Administrador import ruta_admin
 from controllers.Usuarios import ruta_user
 from controllers.Indexes import ruta_index  
-from controllers.Empresa import ruta_empresa  # Import the new Empresa controller
-from controllers.hashing_helper import hash_password
-from models.Administrador import Administrador
+from controllers.Empresa import ruta_empresa
+from controllers.Cliente import ruta_cliente
 
 # Register blueprints
 app.register_blueprint(ruta_auth, url_prefix="/auth")
 app.register_blueprint(ruta_admin, url_prefix="/admin")
 app.register_blueprint(ruta_user, url_prefix="/user")
-app.register_blueprint(ruta_empresa, url_prefix="/empresa")  # Register the new Empresa blueprint
+app.register_blueprint(ruta_empresa, url_prefix="/empresa")
+app.register_blueprint(ruta_cliente, url_prefix="/cliente")
 
 app.register_blueprint(ruta_index, url_prefix="/")
 
@@ -31,4 +31,3 @@ def unauthorized_error(e):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    

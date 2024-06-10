@@ -109,10 +109,11 @@ div a.button-cerrar-sesion {
   display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
-  color: #000000; /* Color de texto original */
-  border: 2px solid #ffffff; /* Borde blanco original */
+  color: #000000;
+  border: 2px solid #ffffff;
   border-radius: 5px;
   transition: all 0.3s ease;
+  background-color: white;
 }
 
 .button-cerrar-sesion:hover {
@@ -174,7 +175,6 @@ div a.button-cerrar-sesion {
   border-radius: 10px;
   font-size: 16px;
 }
-
 
 .table-hover tbody tr:hover {
   background-color: #f0f0f0;

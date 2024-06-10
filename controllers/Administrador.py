@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, jsonify, request
+from flask import Blueprint, render_template, session, jsonify, request, make_response
 from models.Administrador import Administrador
 from models.Empresa import Empresa, EmpresaSchema
 from .Auth import token_required, admin_required
@@ -101,7 +101,11 @@ def show_add_enterprises():
 
 @ruta_admin.route('/login', methods=['GET'])
 def login():
-    return render_template("admin-templates/login.html")
+    session.clear()
+    
+    response = make_response(render_template('admin-templates/login.html'))
+    response.delete_cookie('token')
+    return response
 
 @ruta_admin.route('/admin-info', methods=['GET'])
 @token_required

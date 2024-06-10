@@ -93,7 +93,7 @@
                 contraseña: formData.get('contraseña')
             };
 
-            axios.post('/empresa/add-clientes', data)
+            axios.post('/cliente/add-clientes', data)
                 .then(function(response) {
                     if (response.data.success) {
                         alert('Cliente agregado exitosamente');

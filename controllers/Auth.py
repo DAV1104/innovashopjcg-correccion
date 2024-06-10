@@ -88,6 +88,23 @@ def admin_required(f):
         return f(*args, **kwargs)
     return decorated
 
+def empresa_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        user_id = session.get('user_id')
+        if not user_id:
+            return jsonify({"error": "Not logged in"}), 401
+
+        empresa = Empresa.query.get(user_id)
+        if not empresa:
+            return jsonify({"error": "Empresa not found"}), 404
+
+        if empresa.estado != 'activo':
+            return jsonify({"error": "Esta empresa no se encuentra activa"}), 403
+
+        return f(*args, **kwargs)
+    return decorated_function
+
 @ruta_auth.route('/login', methods=['POST'])
 def login_user():
     data = request.json
