@@ -1,64 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/clientes-empresas-styles.css" />
     <title>Clientes</title>
-  </head>
-  <body>
-    <body>
-      <nav class="menu" tabindex="0">
+</head>
+<body>
+    <nav class="menu" tabindex="0">
         <div class="smartphone-menu-trigger"></div>
         <header class="avatar">
-          <img src="../static/img/icono-empresa.png" />
-          <h2 style="color: #070707; font-weight: bold">Ebay</h2>
-          <h2 style="font-size: 15px; color: #070707">Empresa</h2>
+            <img src="../static/img/icono-empresa.png" />
+            <h2 style="color: #070707; font-weight: bold">Ebay</h2>
+            <h2 style="font-size: 15px; color: #070707">Empresa</h2>
         </header>
         <div class="lista-iconos">
-          <ul>
-            <a href="/empresa/home"><li id="inicio" class="icon-inicio">
-              <span>Inicio</span></a>
-            <a href="descuentos-empresas.html"><li tabindex="0" class="icon-descuentos">
-              <span>Descuentos</span></a>
-            <a href="vendedores-empresas.html"><li tabindex="0" class="icon-vendedores"><span>Vendedores</span></li></a>
-            <a href="clientes-empresas.html"><li tabindex="0" class="icon-clientes"><span>Clientes</span></li></a>
-            <a href="stock-empresas.html"><li tabindex="0" class="icon-stock"><span>Stock</span></li></a>
-    
-            <a href="cotizacion-empresas.html"><li tabindex="0" class="icon-cotizacion"><span>Cotizacion</span></li></a>
-    
-            <a href="compras-empresas.html"><li tabindex="0" class="icon-compra"><span>Compra</span></li></a>
-          </ul>
+          <a href="/empresa/home" class="icon-inicio">
+            <span>Inicio</span>
+          </a>
+          <a href="descuentos-empresas.html" class="icon-descuentos">
+            <span>Descuentos</span></a>
+          <a href="vendedores-empresas.html" class="icon-vendedores"><span>Vendedores</span></a>
+          <a href="/empresa/clientes" class="icon-clientes" ><span>Clientes</span></a>
+          <a href="stock-empresas.html" class="icon-stock "><span>Stock</span></li></a>
+  
+          <a href="cotizacion-empresas.html" class="icon-cotizacion "><span>Cotizacion</span></a>
+  
+          <a href="compras-empresas.html" class="icon-compra "><span>Compra</span></a>
         </div>
 
         <div class="Contenedor">
-          <a href="index.html" class="button-cerrar-sesion">Cerrar sesion</a>
-          <a href="index2.html" class="button-cambiar-cuenta"
-            >Cambiar cuenta</a
-          >
+            <a href="index.html" class="button-cerrar-sesion">Cerrar sesion</a>
+            <a href="index2.html" class="button-cambiar-cuenta">Cambiar cuenta</a>
         </div>
-      </nav>
+    </nav>
 
-      <div class="helper">
+    <div class="helper">
         <div class="helper-container">
-          <h2 class="tittle">Clientes</h2>
+            <h2 class="tittle">Clientes</h2>
 
-          <form class="new-cliente-form">
-            
-            <div class="container-form"><label for="nombre">Nombre:</label><input type="text" id="nombre" /> </div>
-            <div class="container-form"><label for="ID"> ID:</label><input type="text" id="nit" /></div>
-            <div class="container-form"><label for="direccion">Direccion:</label><input type="text" id="nicho" /></div>
-            <div class="container-form"><label for="telefono">Telefono:</label><input type="text" id="representante" /></div>
-            <div class="container-form"><label for="email" style="white-space: nowrap;">Email:</label> <input type="text" id="contacto"  /></div>
-            <div class="container-form"><label for="contraseña">Contraseña:</label><input type="password" id="representante" /></div>
+            <form id="new-cliente-form" class="new-cliente-form">
+                <div class="container-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required />
+                </div>
+                <div class="container-form">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" required />
+                </div>
+                <div class="container-form">
+                    <label for="nit">ID:</label>
+                    <input type="text" id="nit" name="nit" required />
+                </div>
+                <div class="container-form">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" id="direccion" name="direccion" required />
+                </div>
+                <div class="container-form">
+                    <label for="telefono">Telefono:</label>
+                    <input type="text" id="telefono" name="telefono" required />
+                </div>
+                <div class="container-form">
+                    <label for="email" style="white-space: nowrap;">Email:</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div class="container-form">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required />
+                </div>
+                <button type="submit" class="boton-aceptar">ACEPTAR</button>
+            </form>
 
-            
-    <button class="boton-aceptar">ACEPTAR</button>
-          
-          </div>
-          <a  href="clientes2-empresas.html"><input type="button"  class="ver-lista" value="VER LISTA"></input></a>
+            <a href="clientes2-empresas.html">
+                <input type="button" class="ver-lista" value="VER LISTA">
+            </a>
         </div>
-      </div>
-    </body>
-  </body>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('new-cliente-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {
+                nombre: formData.get('nombre'),
+                apellidos: formData.get('apellidos'),
+                nit: formData.get('nit'),
+                direccion: formData.get('direccion'),
+                telefono: formData.get('telefono'),
+                email: formData.get('email'),
+                contraseña: formData.get('contraseña')
+            };
+
+            axios.post('/empresa/add-clientes', data)
+                .then(function(response) {
+                    if (response.data.success) {
+                        alert('Cliente agregado exitosamente');
+                        window.location.reload();
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error adding client:', error);
+                    alert('Error al agregar cliente');
+                });
+        });
+    </script>
+</body>
 </html>

@@ -175,12 +175,15 @@ div a.button-cerrar-sesion {
   font-size: 16px;
 }
 
+
 .table-hover tbody tr:hover {
   background-color: #f0f0f0;
 }
 
 .table-hover tbody tr {
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .table-hover tbody tr.selected td {
@@ -203,7 +206,7 @@ div a.button-cerrar-sesion {
 .table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
-  text-align: left;
+  text-align: center;
 }
 
 .table th {
@@ -254,12 +257,12 @@ div a.button-cerrar-sesion {
   background-color: #000 !important;
   color: #fff;
   border: none;
-  margin: 10px 10px;
+  margin: 0 5px !important;
   --bs-btn-color: #fff !important;
   --bs-btn-bg: #030303 !important;
-  --bs-btn-border-color: #000000 !important;
-  --bs-btn-hover-color: #000000 !important;
-  --bs-btn-hover-bg: #000000 !important;
+  --bs-btn-border-color: #d1d1d1 !important;
+  --bs-btn-hover-color: #ffffff !important;
+  --bs-btn-hover-bg: #f1f1f1 !important;
   --bs-btn-hover-border-color: #000000 !important;
 }
 
@@ -267,12 +270,12 @@ div a.button-cerrar-sesion {
   background-color: #000 !important;
   color: #fff;
   border: none;
-  margin: 5px 0;
+  margin: 0 5px;
   --bs-btn-color: #fff !important;
   --bs-btn-bg: #030303 !important;
-  --bs-btn-border-color: #000000 !important;
-  --bs-btn-hover-color: #000000 !important;
-  --bs-btn-hover-bg: #000000 !important;
+  --bs-btn-border-color: #d1d1d1 !important;
+  --bs-btn-hover-color: #ffffff !important;
+  --bs-btn-hover-bg: #f1f1f1 !important;
   --bs-btn-hover-border-color: #000000 !important;
 }
 

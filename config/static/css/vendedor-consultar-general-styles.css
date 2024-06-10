@@ -115,8 +115,8 @@ main {
 }
 
 .btn-venta-general {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   margin-top: 10%;
   padding: 10px 20px;
   border: none;
@@ -133,8 +133,8 @@ main {
 }
 
 .btn-venta-mes {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   margin-top: 10%;
   padding: 10px 20px;
   border: none;
@@ -168,8 +168,11 @@ main {
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-right: 50%;
+  margin-right: 25%;
   margin-top: 7.9px;
+  top: 703px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .inputs {
@@ -177,7 +180,9 @@ main {
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  width: 200%;
+  width: 25%;
+  top: 590px;
+  left: 5px;
 }
 
 .menu {

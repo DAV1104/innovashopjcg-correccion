@@ -1,18 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    axios.get('/admin/admin-info')
-        .then(function(response) {
-            document.getElementById('admin-name').textContent = response.data.nombre;
-        })
-        .catch(function(error) {
-            console.error('Error fetching admin info:', error);
-            document.getElementById('admin-name').textContent = 'Error';
-        });
+    const checkStatusAndUpdateInfo = () => {
+        axios.get('/empresa/empresa-info')
+            .then(function(response) {
+                const empresaData = response.data;
+                document.getElementById('empresa-name').textContent = empresaData.nombre;
+                document.getElementById('empresa-rol').textContent = empresaData.rol;
+
+                if (empresaData.estado !== 'activo') {
+                    window.location.href = '/403';
+                }
+            })
+            .catch(function(error) {
+                console.error('Error fetching empresa info:', error);
+                document.getElementById('admin-name').textContent = 'Error';
+            });
+    };
+
+    // Initial check
+    checkStatusAndUpdateInfo();
 
     const searchInput = document.querySelector('.search-bar input[name="query"]');
 
     const performSearch = () => {
         const query = searchInput.value;
-        axios.get(`/api/clientes?query=${encodeURIComponent(query)}`)
+        axios.get(`/empresa/api/clientes?query=${encodeURIComponent(query)}`)
             .then(function(response) {
                 const usuarios = response.data;
                 const tableBody = document.querySelector('tbody');
@@ -50,4 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial load
     performSearch();
+
+    // Check status periodically
+    setInterval(checkStatusAndUpdateInfo, 60000); // Check every minute
 });

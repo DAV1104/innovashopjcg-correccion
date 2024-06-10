@@ -112,12 +112,13 @@ body {
   .menu {
     background: #c9c6c6;
     height: 100vh;
-    width: 240px;
+    width: 260px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
     outline: none;
+    padding: 2;
   }
   
   .menu .avatar {
@@ -127,7 +128,7 @@ body {
   }
   
   .menu .avatar img {
-    width: 50px;
+    width: 100px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid #c9c6c6;
@@ -139,13 +140,13 @@ body {
     margin-bottom: 0;
   }
   
-  .menu ul {
+  .menu div a {
     list-style: none;
     padding: 0.5em 0;
     margin: 0;
   }
   
-  .menu ul li {
+  .menu div a {
     padding: 0.5em 1em 0.5em 3em;
     font-size: 0.95em;
     font-weight: regular;
@@ -155,8 +156,41 @@ body {
     background-size: auto 20px;
     transition: all 0.15s linear;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px;
   }
+  
+  .lista-iconos {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lista-iconos a {
+    display: block;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
+  }
+  
+  .lista-iconos a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .lista-iconos a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .lista-iconos a.active {
+    background-color: #f0f0f0;
+    color: #333;
+    border-bottom: 2px solid #070707;
+  }
+  
+  .lista-iconos a.active span {
+    font-weight: bold;
+  }
+  
   .button-container {
     display: flex;
     justify-content: center;
@@ -192,41 +226,41 @@ a{
   text-decoration: none;
 }
 
-  .menu ul li.icon-inicio {
-    background-image: url(../img/house_icon.png);
-  }
-  
-  .menu ul li.icon-descuentos {
-    background-image: url(../img/icono-descuentos.png);
-  }
-  
-  .menu ul li.icon-vendedores {
-    background-image: url(../img/icono-vendedor.png);
-  }
-  
-  .menu ul li.icon-clientes {
-    background-image: url(../img/clients_icon.png);
-  }
-  
-  .menu ul li.icon-stock {
-    background-image: url(../img/stock_icon.png);
-  }
-  
-  .menu ul li.icon-cotizacion {
-    background-image: url(../img/icono-cotizacion.png);
-  }
+.menu a.icon-inicio {
+  background-image: url(../img/house_icon.png);
+}
 
-  .menu ul li.icon-compra {
-    background-image: url(../img/purchase_icon.png);
-  }
-  
-  .menu ul li:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  .menu ul li:focus {
-    outline: none;
-  }
+.menu a.icon-descuentos {
+  background-image: url(../img/icono-descuentos.png);
+}
+
+.menu a.icon-vendedores {
+  background-image: url(../img/icono-vendedor.png);
+}
+
+.menu a.icon-clientes {
+  background-image: url(../img/clients_icon.png);
+}
+
+.menu a.icon-stock {
+  background-image: url(../img/stock_icon.png);
+}
+
+.menu a.icon-cotizacion {
+  background-image: url(../img/icono-cotizacion.png);
+}
+
+.menu a.icon-compra {
+  background-image: url(../img/purchase_icon.png);
+}
+
+.menu a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu a:focus {
+  outline: none;
+}
   
   @media screen and (max-width: 900px) and (min-width: 400px) {
     body {

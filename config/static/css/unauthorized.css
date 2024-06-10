@@ -12,6 +12,7 @@ body {
     height: calc(100vh - 60px);
     width: calc(95vw - 220px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
@@ -24,6 +25,7 @@ body {
     color: #000000;
     font-size: 30px;
     text-align: center;
+    margin-bottom: 30px;
   }
   
   .menu {
@@ -55,6 +57,21 @@ body {
   
   .menu .avatar h2#admin-name {
     font-weight: bold;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #333;
   }
   
   @media screen and (max-width: 900px) and (min-width: 400px) {

@@ -62,9 +62,7 @@ def login_admin():
     if not data["clave"] or not data["usuario"]:
         return jsonify({"error": "Uno o más campos están vacíos"}), 400
 
-    administrador = Administrador.query.filter_by(
-        usuario=data["usuario"],
-    ).first()
+    administrador = Administrador.query.filter_by(usuario=data["usuario"]).first()
 
     if administrador is None or not verify_password(administrador.contraseña, data["clave"]):
         return jsonify({"error": "Usuario o contraseña incorrectos"}), 404
@@ -72,11 +70,23 @@ def login_admin():
     # Store user information in session
     session['user_id'] = administrador.id
     session['nombre'] = administrador.nombre
+    session['usuario'] = administrador.usuario
 
     token = generar_token(administrador.id, 'admin')
     response = jsonify({"success": True, "token": token})
     response.set_cookie('token', token, httponly=True)
     return response
+
+def admin_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        user_id = session.get('user_id')
+        usuario = session.get('usuario')
+        admin = Administrador.query.filter_by(id=user_id, usuario=usuario).first()
+        if not admin:
+            return render_template('403.html'), 403
+        return f(*args, **kwargs)
+    return decorated
 
 @ruta_auth.route('/login', methods=['POST'])
 def login_user():
@@ -104,6 +114,14 @@ def login_user():
         if empresa.estado != 'activo':
             return jsonify({"error": "La empresa no está activa. Por favor, solicite más tiempo."}), 403
         
+        # Check if the session_limit date has not passed
+        if empresa.session_limit < datetime.utcnow().date():
+            return jsonify({"error": "El plazo de la sesión ha expirado. Por favor, solicite más tiempo."}), 403
+
+        # Update ultima_sesion field
+        empresa.ultima_sesion = datetime.utcnow()
+        db.session.commit()
+
         # Store user information in session
         session['user_id'] = empresa.id
         session['nombre'] = empresa.nombre
@@ -115,6 +133,7 @@ def login_user():
         return response
 
     return jsonify({"error": "Usuario o contraseña incorrectos"}), 404
+
 @ruta_auth.route('/logout', methods=['GET'])
 def logout():
     session.clear()

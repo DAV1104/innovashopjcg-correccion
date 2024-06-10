@@ -144,33 +144,15 @@ div a.button-cerrar-sesion {
   outline: none;
 }
 
-.container .search-bar {
-  margin-bottom: 30px;
-}
-
-.container .search-bar input[type="search"] {
-  left: 5px;
-  top: 10px;
-  position: absolute;
-  margin: 10px;
-  width: 30%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-}
-
 .container {
   background-color: #dadada;
-  margin: 1.5%;
-  height: 94%;
-  width: 80vw !important;
-  display: flex;
-  flex-direction: column;
+  margin: 20px;
+  height: calc(100vh - 60px);
+  width: calc(95vw - 220px) !important;
+  display: block;
   border-radius: 20px;
   position: fixed;
   align-items: center;
-  padding-top: 18vh;
   overflow: hidden;
   box-shadow: 0 0 10px #000000;
 }
@@ -189,6 +171,30 @@ div a.button-cerrar-sesion {
   background-color: #333333 !important;
 }
 
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 0;
+  position: sticky;
+  margin-bottom: 30px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.table-container::-webkit-scrollbar {
+  display: none; /* WebKit browsers */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.table-hover tbody tr.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -201,13 +207,37 @@ div a.button-cerrar-sesion {
   text-align: left;
 }
 
+.table-hover tbody tr.selected td {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+
 .table th {
+  padding: 15px 15px;
   background-color: #f2f2f2;
   color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="search"] {
+  margin: 10px;
+  margin-bottom: 0px;
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 .container .accordion {
-  width: 95%;
+  width: 100%;
   display: block;
   align-items: center;
 }

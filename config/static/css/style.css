@@ -103,13 +103,14 @@ body {
   color: #666;
 }
 
+
 .action-buttons .btn {
   display: inline-block;
   padding: 12px 24px;
   background-color: #000;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 18px;
   transition: background-color 0.3s ease;
 }
