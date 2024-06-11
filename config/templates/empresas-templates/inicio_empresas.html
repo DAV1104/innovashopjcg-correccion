@@ -12,24 +12,29 @@
   <nav class="menu" tabindex="0">
     <div class="smartphone-menu-trigger"></div>
     <header class="avatar">
-      <img src="../static/img/icono-empresa.png" />
-      <h2 style="color: #070707; font-weight: bold" id="empresa-name">Loading...</h2>
-      <h2 style="font-size: 15px; color: #070707" id="empresa-rol">Loading...</h2>
+      <img src="{{ url_for('static', filename='img/icono-empresa.png') }}" />
+      <h2 id="empresa-name" style="color: #070707; font-weight: bold">
+        Loading...
+      </h2>
+      <h2 style="font-size: 15px; color: #070707" id="empresa-rol">
+        Loading...
+      </h2>
     </header>
-    <ul>
-      <a href="/empresa/home"><li tabindex="0" class="icon-inicio">
-        <span>Inicio</span>
-      </li></a>
-      <a href="descuentos-empresas.html"><li tabindex="0" class="icon-descuentos">
-        <span>Descuentos</span>
-      </li></a>
-      <a href="vendedores-empresas.html"><li tabindex="0" class="icon-vendedores"><span>Vendedores</span></li></a>
-      <a href="/empresa/clientes"><li tabindex="0" class="icon-clientes"><span>Clientes</span></li></a>
-      <a href="stock-empresas.html"><li tabindex="0" class="icon-stock"><span>Stock</span></li></a>
-      <a href="cotizacion-empresas.html"><li tabindex="0" class="icon-cotizacion"><span>Cotizacion</span></li></a>
-      <a href="compras-empresas.html"><li tabindex="0" class="icon-compra"><span>Compra</span></li></a>
-    </ul>
-
+    <div class="lista-iconos">
+      <a href="/empresa/home" class="icon-inicio"><span>Inicio</span></a>
+      <a href="/empresa/descuentos" class="icon-descuentos"
+        ><span>Descuentos</span></a
+      >
+      <a href="/empresa/vendedores-list" class="icon-vendedores"
+        ><span>Vendedores</span></a
+      >
+      <a href="/empresa/clientes" class="icon-clientes"
+        ><span>Clientes</span></a
+      >
+      <a href="/empresa/stock" class="icon-stock"><span>Stock</span></a>
+      <a href="/empresa/proveedores" class="icon-cotizacion"
+        ><span>Proveedores</span></a
+      >
     <div class="Contenedor">
       <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
       <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
@@ -79,5 +84,6 @@
       setInterval(checkStatusAndUpdateInfo, 30000); // 5 minutes
     });
   </script>
+    <script src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
 </body>
 </html>

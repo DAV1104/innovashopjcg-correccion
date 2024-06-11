@@ -14,28 +14,29 @@
         <h2 id="empresa-name" style="color: #070707; font-weight: bold">
           Loading...
         </h2>
-        <h2 style="font-size: 15px; color: #070707" id="empresa-rol">Loading...</h2>
+        <h2 style="font-size: 15px; color: #070707" id="empresa-rol">
+          Loading...
+        </h2>
       </header>
       <div class="lista-iconos">
-        <a href="/empresa/home" class="icon-inicio">
-          <span>Inicio</span>
-        </a>
-        <a href="descuentos-empresas.html" class="icon-descuentos">
-          <span>Descuentos</span></a>
-        <a href="vendedores-empresas.html" class="icon-vendedores"><span>Vendedores</span></a>
-        <a href="/empresa/clientes" class="icon-clientes" ><span>Clientes</span></a>
-        <a href="stock-empresas.html" class="icon-stock "><span>Stock</span></li></a>
-
-        <a href="cotizacion-empresas.html" class="icon-cotizacion "><span>Cotizacion</span></a>
-
-        <a href="compras-empresas.html" class="icon-compra "><span>Compra</span></a>
-      </div>
-
+        <a href="/empresa/home" class="icon-inicio"><span>Inicio</span></a>
+        <a href="/empresa/descuentos" class="icon-descuentos"
+          ><span>Descuentos</span></a
+        >
+        <a href="/empresa/stock" class="icon-vendedores"
+          ><span>Vendedores</span></a
+        >
+        <a href="/empresa/clientes" class="icon-clientes"
+          ><span>Clientes</span></a
+        >
+        <a href="/empresa/stock" class="icon-stock"><span>Stock</span></a>
+        <a href="/empresa/proveedores" class="icon-cotizacion"
+          ><span>Proveedores</span></a
+        >
       <div class="Contenedor">
-       <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
-       <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
+        <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
+        <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
       </div>
- 
     </nav>
 
     <div class="helper">
@@ -80,6 +81,7 @@
     <script>
         document.getElementById('new-cliente-form').addEventListener('submit', function(event) {
             event.preventDefault();
+
             const checkStatusAndUpdateInfo = () => {
         axios.get('/empresa/empresa-info')
             .then(function(response) {
@@ -131,5 +133,6 @@
                 });
         });
     </script>
+    <script src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
 </body>
 </html>

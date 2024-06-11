@@ -307,6 +307,19 @@ div a.button-cerrar-sesion {
   margin-top: 8em !important;
 }
 
+.modal-header {
+  background-color: #f8f9fa;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.btn-custom {
+  margin-top: 10px;
+}
+
+
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {
     padding-left: 90px;

@@ -91,7 +91,7 @@ def admin_required(f):
 def empresa_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        user_id = session.get('user_id')
+        user_id = session.get('empresa_id')
         if not user_id:
             return jsonify({"error": "Not logged in"}), 401
 
@@ -140,7 +140,7 @@ def login_user():
         db.session.commit()
 
         # Store user information in session
-        session['user_id'] = empresa.id
+        session['empresa_id'] = empresa.id
         session['nombre'] = empresa.nombre
         session['rol'] = empresa.rol
 

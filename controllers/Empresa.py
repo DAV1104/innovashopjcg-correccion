@@ -5,7 +5,7 @@ from models.Modulos import Modulo
 from models.Modulos_Empresas import ModuloEmpresa
 from models.ClientesEmpresas import ClientesEmpresas
 from models.Usuario import Usuario
-from models.Proveedor import Proveedor
+from models.EmpresasDescuentosTime import EmpresasDescuentosTime
 from .Auth import token_required, admin_required, empresa_required
 from config.db import db
 from .hashing_helper import hash_password
@@ -16,13 +16,13 @@ ruta_empresa = Blueprint('empresa_route', __name__)
 empresa_schema = EmpresaSchema()
 empresas_schema = EmpresaSchema(many=True)
 
-DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes']
+DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'proveedores']
 
 @ruta_empresa.route('/empresa-info', methods=['GET'])
 @token_required
 @empresa_required
 def empresa_info():
-    user_id = session.get('user_id')
+    user_id = session.get('empresa_id')
     empresa = Empresa.query.get(user_id)
     return jsonify({
         "nombre": empresa.nombre.capitalize(),
@@ -30,6 +30,36 @@ def empresa_info():
         "estado": empresa.estado
     })
     
+@ruta_empresa.route('/descuentos', methods=['POST'])
+@token_required
+def aplicar_descuento():
+    data = request.json
+    porcentaje_descuento = data.get('porcentaje_descuento')
+    fecha_inicio = data.get('fecha_inicio')
+    fecha_fin = data.get('fecha_fin')
+    empresa_id = session['empresa_id']
+
+    try:
+        fecha_inicio = datetime.strptime(fecha_inicio, '%Y-%m-%d').date()
+        fecha_fin = datetime.strptime(fecha_fin, '%Y-%m-%d').date()
+        nuevo_descuento = EmpresasDescuentosTime(
+            porcentaje_descuento=porcentaje_descuento,
+            fecha_inicio=fecha_inicio,
+            fecha_fin=fecha_fin,
+            empresa_id=empresa_id
+        )
+        db.session.add(nuevo_descuento)
+        db.session.commit()
+        return jsonify({"success": True}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+    
+@ruta_empresa.route('/descuentos', methods=['GET'])
+@token_required 
+@empresa_required
+def aplicar_descuentos():
+    return render_template('empresas-templates/descuentos-empresas.html')
 
 @ruta_empresa.route('/home', methods=['GET'])
 @token_required
@@ -53,7 +83,13 @@ def show_stock():
 @token_required
 @empresa_required
 def add_proveedor_form():
-    return render_template('empresas-templates/add-proveedor.html')
+    return render_template('empresas-templates/add-proveedores-empresas.html')
+
+@ruta_empresa.route('/vendedores-list')
+@token_required
+@empresa_required
+def show_vendedores():
+    return render_template('empresas-templates/vendedores2-empresas.html')
 
 @ruta_empresa.route('/modificar-sesion', methods=['POST'])
 @token_required
@@ -108,7 +144,7 @@ def eliminar_empresa(empresa_id):
 @token_required
 @empresa_required
 def list_clientes():
-    empresa_id = session.get('user_id') 
+    empresa_id = session.get('empresa_id') 
     if not empresa_id:
         return jsonify({"error": "Not logged in"}), 401
 
@@ -123,7 +159,7 @@ def list_clientes():
 @token_required
 @empresa_required
 def api_list_clientes():
-    empresa_id = session.get('user_id')
+    empresa_id = session.get('empresa_id')
     if not empresa_id:
         return jsonify({"error": "Not logged in"}), 401
 

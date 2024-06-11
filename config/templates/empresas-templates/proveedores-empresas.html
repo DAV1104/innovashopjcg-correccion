@@ -21,28 +21,29 @@
         <h2 id="empresa-name" style="color: #070707; font-weight: bold">
           Loading...
         </h2>
-        <h2 style="font-size: 15px; color: #070707" id="empresa-rol">Loading...</h2>
+        <h2 style="font-size: 15px; color: #070707" id="empresa-rol">
+          Loading...
+        </h2>
       </header>
       <div class="lista-iconos">
-        <a href="/empresa/home" class="icon-inicio">
-          <span>Inicio</span>
-        </a>
-        <a href="descuentos-empresas.html" class="icon-descuentos">
-          <span>Descuentos</span></a>
-        <a href="vendedores-empresas.html" class="icon-vendedores"><span>Vendedores</span></a>
-        <a href="/empresa/clientes" class="icon-clientes" ><span>Clientes</span></a>
-        <a href="stock-empresas.html" class="icon-stock "><span>Stock</span></li></a>
-
-        <a href="cotizacion-empresas.html" class="icon-cotizacion "><span>Cotizacion</span></a>
-
-        <a href="compras-empresas.html" class="icon-compra "><span>Compra</span></a>
-      </div>
-
+        <a href="/empresa/home" class="icon-inicio"><span>Inicio</span></a>
+        <a href="/empresa/descuentos" class="icon-descuentos"
+          ><span>Descuentos</span></a
+        >
+        <a href="/empresa/vendedores-list" class="icon-vendedores"
+          ><span>Vendedores</span></a
+        >
+        <a href="/empresa/clientes" class="icon-clientes"
+          ><span>Clientes</span></a
+        >
+        <a href="/empresa/stock" class="icon-stock"><span>Stock</span></a>
+        <a href="/empresa/proveedores" class="icon-cotizacion"
+          ><span>Proveedores</span></a
+        >
       <div class="Contenedor">
-       <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
-       <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
+        <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
+        <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
       </div>
- 
     </nav>
     <div class="container">
       <div class="search-bar">
@@ -76,5 +77,45 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/empresas/empresas-proveedores.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const empresaNameElem = document.getElementById('empresa-name');
+          const empresaRolElem = document.getElementById('empresa-rol');
+    
+          const checkStatusAndUpdateInfo = () => {
+            axios.get('/empresa/empresa-info')
+              .then(function(response) {
+                const empresaData = response.data;
+                empresaNameElem.textContent = empresaData.nombre;
+                empresaRolElem.textContent = empresaData.rol;
+    
+                if (empresaData.estado !== 'activo') {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Empresa Inactiva',
+                    text: 'La empresa se encuentra inactiva. Por favor, solicite más tiempo de acceso.',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                  }).then(() => {
+                    window.location.href = '/user/login';
+                  });
+                }
+              })
+              .catch(function(error) {
+                console.error('Error fetching empresa info:', error);
+                empresaNameElem.textContent = 'Error';
+              });
+          };
+    
+          // Call the function on page load
+          checkStatusAndUpdateInfo();
+    
+          // Set an interval to check the status every 30 seconds (30000 milliseconds)
+          setInterval(checkStatusAndUpdateInfo, 30000); // 5 minutes
+        });
+        </script>
+    <script src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
+    
+    <scripts src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
   </body>
 </html>
