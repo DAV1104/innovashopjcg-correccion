@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, jsonify, session, request, render_template
 from config.db import db
 from .Auth import token_required
 from models.VendedoresEmpresas import VendedoresEmpresas
@@ -90,3 +90,13 @@ def add_vendedor():
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+    
+    
+@ruta_vendedor.route('/home')
+def show_home_vendedor():
+    return render_template('vendedores-templates/vendedor-inicio.html')
+
+@ruta_vendedor.route('/clientes')
+def clieentes_vendedor():
+    return render_template('vendedores-templates/vendedor-clientes-lista.html')
+

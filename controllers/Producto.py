@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, jsonify, request, session, url_for
+from flask import Flask, Blueprint, jsonify, request, session, url_for, send_file
 from config.db import db, app
 import os
 from models.Producto import Producto
@@ -8,8 +8,11 @@ from models.ProductoAlterno import ProductoAlterno
 from models.EmpresasDescuentosTime import EmpresasDescuentosTime
 from werkzeug.utils import secure_filename
 from models.Empresa import Empresa
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 from .Auth import token_required
 from datetime import datetime, date
+from fpdf import FPDF
 
 ruta_productos = Blueprint('ruta_productos', __name__)
 
@@ -18,9 +21,20 @@ ruta_productos = Blueprint('ruta_productos', __name__)
 # Allowed extensions for the upload
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
+MAIN_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__))
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+def generate_pdf(data, pdf_file_path):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    for key, value in data.items():
+        pdf.cell(200, 10, txt=f"{key}: {value}", ln=True)
+    pdf.output(pdf_file_path)
+
+    
 @ruta_productos.route('/add-stock', methods=['POST'])
 @token_required
 def add_stock():
@@ -119,7 +133,17 @@ def add_stock():
                 db.session.add(producto_alterno)
                 db.session.commit()
         
-        return jsonify({"success": True})
+        # Generate PDFs
+        pdf_data = {
+            "Cotizacion ID": "N/A",
+            "Compra ID": nueva_compra.id,
+            "Proveedor ID": proveedor_id,
+            "Empresa ID": session['empresa_id']
+        }
+        pdf_file_path = os.path.join(MAIN_FOLDER_PATH, f"compra_{nueva_compra.id}.pdf")
+        generate_pdf(pdf_data, pdf_file_path)
+
+        return send_file(pdf_file_path, as_attachment=True, download_name=f"compra_{nueva_compra.id}.pdf")
     else:
         return jsonify({"error": "Invalid file type"}), 400
     

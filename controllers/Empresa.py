@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for, send_file
 from models.Empresa import Empresa, EmpresaSchema
 from models.Administrador import Administrador
 from models.Modulos import Modulo
@@ -9,6 +9,8 @@ from models.EmpresasDescuentosTime import EmpresasDescuentosTime
 from models.Producto import Producto
 from models.Compra import Compra
 from models.CompraDetalles import CompraDetalles
+from models.Cotizacion import Cotizacion
+from models.CotizacionDetalles import CotizacionEmpresaDetalles
 from .Auth import token_required, admin_required, empresa_required
 from config.db import db
 from .hashing_helper import hash_password
@@ -132,6 +134,37 @@ def modificar_sesion():
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@ruta_empresa.route('/cotizar', methods=['POST'])
+@token_required
+def cotizar():
+    data = request.json
+    empresa_id = session.get('empresa_id')
+    proveedor_id = data.get('proveedor_id')
+    producto_id = data.get('producto_id')
+    cantidad = data.get('cantidad')
+    precio_total = data.get('precio_total')
+
+    if not empresa_id or not proveedor_id or not producto_id or not cantidad or not precio_total:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    cotizacion = Cotizacion(
+        empresa_id=empresa_id,
+        proveedor_id=proveedor_id
+    )
+    db.session.add(cotizacion)
+    db.session.commit()
+
+    cotizacion_detalle = CotizacionEmpresaDetalles(
+        cotizacion_id=cotizacion.id,
+        producto_id=producto_id,
+        cantidad=cantidad,
+        precio_total=precio_total
+    )
+    db.session.add(cotizacion_detalle)
+    db.session.commit()
+
+    return jsonify({"success": "Cotización realizada con éxito", "total_precio": precio_total})
 
 
 @ruta_empresa.route('/eliminar-empresa/<int:empresa_id>', methods=['DELETE'])

@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     showConfirmButton: false
                 }).then(() => {
                     if (rol === 'vendedor') {
-                        window.location.href = "/vendedor";
+                        window.location.href = "/vendedor/home";
                     } else if (rol === 'cliente') {
                         window.location.href = "/cliente/home";
                     } else if (rol === 'empresa') {

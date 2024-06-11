@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .put(`/producto/edit/${isEditing}`, formData)
                 .then((response) => {
                     alert("Producto editado con éxito.");
-                    fetchProducts();
+                    window.location.href = `/empresa/download-pdf/${response.data.compra_id}`;
                 })
                 .catch((error) => {
                     console.error("Error editando el producto:", error);
@@ -153,13 +153,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 .post("/producto/add-stock", formData)
                 .then((response) => {
                     alert("Producto añadido con éxito.");
-                    fetchProducts();
+                    window.location.href = `/empresa/download-pdf/${response.data.compra_id}`;
                 })
                 .catch((error) => {
                     console.error("Error añadiendo el producto:", error);
                     alert("Hubo un error al añadir el producto.");
                 });
         }
+    });
+
+    const cotizarButton = document.getElementById('cotizar-button');
+
+    cotizarButton.addEventListener('click', function () {
+        const formData = new FormData(document.getElementById('add-stock-form'));
+        const proveedorId = formData.get('proveedor_id');
+        const productId = formData.get('producto_alterno_id');
+        const precio = parseFloat(formData.get('precio'));
+        const cantidad = parseInt(formData.get('existencias'));
+
+        if (!proveedorId || !productId || !precio || !cantidad) {
+            alert("Por favor, complete todos los campos necesarios para la cotización.");
+            return;
+        }
+
+        const totalPrecio = precio * cantidad;
+
+        axios.post('/empresa/cotizar', {
+            proveedor_id: proveedorId,
+            producto_id: productId,
+            cantidad: cantidad,
+            precio_total: totalPrecio
+        })
+        .then(function(response) {
+            alert("Cotización realizada con éxito. Total: $" + totalPrecio);
+            window.location.href = `/empresa/download-pdf/${response.data.cotizacion_id}`;
+        })
+        .catch(function(error) {
+            console.error("Error realizando la cotización:", error);
+            alert("Hubo un error al realizar la cotización.");
+        });
     });
 
     // Fetch and populate proveedor and producto_alterno options when the page loads
