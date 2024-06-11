@@ -10,6 +10,7 @@ from controllers.Empresa import ruta_empresa
 from controllers.Cliente import ruta_cliente
 from controllers.Proveedor import ruta_proveedor
 from controllers.Producto import ruta_productos
+from controllers.Vendedores import ruta_vendedor
 
 # Register blueprints
 app.register_blueprint(ruta_auth, url_prefix="/auth")
@@ -19,6 +20,7 @@ app.register_blueprint(ruta_empresa, url_prefix="/empresa")
 app.register_blueprint(ruta_cliente, url_prefix="/cliente")
 app.register_blueprint(ruta_proveedor, url_prefix="/proveedor")  # Ensure this line is correct
 app.register_blueprint(ruta_productos, url_prefix="/producto")
+app.register_blueprint(ruta_vendedor, url_prefix="/vendedor")
 
 app.register_blueprint(ruta_index, url_prefix="/")
 
