@@ -191,76 +191,63 @@ body {
     font-weight: bold;
   }
   
-  .button-container {
+  .cerrar-sesion {
+    text-align: center;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
-  }
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  .button-container {
-    display: flex;
-    justify-content: space-between;
   }
   
-  .button-cambiar-cuenta,
-  .button-cerrar-sesion {
-    background-color: white;
-    border: none;
-    color: black;
-    padding: 12px 15px;
-    padding-left: 16px;
-    text-align: center;
-    text-decoration: none;
+  div a.button-cerrar-sesion {
     display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 16px;
-    margin-top: 18em;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
   }
-a{
-  color: #000000;
-  text-decoration: none;
-}
-
-.menu a.icon-inicio {
-  background-image: url(../img/house_icon.png);
-}
-
-.menu a.icon-descuentos {
-  background-image: url(../img/icono-descuentos.png);
-}
-
-.menu a.icon-vendedores {
-  background-image: url(../img/icono-vendedor.png);
-}
-
-.menu a.icon-clientes {
-  background-image: url(../img/clients_icon.png);
-}
-
-.menu a.icon-stock {
-  background-image: url(../img/stock_icon.png);
-}
-
-.menu a.icon-cotizacion {
-  background-image: url(../img/icono-cotizacion.png);
-}
-
-.menu a.icon-compra {
-  background-image: url(../img/purchase_icon.png);
-}
-
-.menu a:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.menu a:focus {
-  outline: none;
-}
+  
+  .button-cerrar-sesion:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .menu a.icon-inicio {
+    background-image: url(../img/house_icon.png);
+  }
+  
+  .menu a.icon-descuentos {
+    background-image: url(../img/icono-descuentos.png);
+  }
+  
+  .menu a.icon-vendedores {
+    background-image: url(../img/icono-vendedor.png);
+  }
+  
+  .menu a.icon-clientes {
+    background-image: url(../img/clients_icon.png);
+  }
+  
+  .menu a.icon-stock {
+    background-image: url(../img/stock_icon.png);
+  }
+  
+  .menu a.icon-cotizacion {
+    background-image: url(../img/icono-cotizacion.png);
+  }
+  
+  .menu a.icon-compra {
+    background-image: url(../img/purchase_icon.png);
+  }
+  
+  .menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu a:focus {
+    outline: none;
+  }
   
   @media screen and (max-width: 900px) and (min-width: 400px) {
     body {

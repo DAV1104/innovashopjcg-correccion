@@ -214,6 +214,31 @@ div a.button-cerrar-sesion {
   color: #333;
 }
 
+.table-container {
+  max-height: 800px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 0;
+  position: sticky;
+  margin-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.table-container:-webkit-scrollbar {
+  display: none; /* WebKit browsers */
+}
+
+.table th {
+  padding: 15px 15px;
+  background-color: #f2f2f2;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  box-shadow: #000;
+}
+
 .buttons button {
   padding: 10px 20px;
   border: none;
@@ -299,13 +324,20 @@ div a.button-cerrar-sesion {
 
 .modal-body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.modal-body .btn {
+  flex: 0 0 48%;
+  margin-bottom: 0.5em;
 }
 
 .modal {
-  --bs-modal-width: 270px !important;
+  --bs-modal-width: 400px !important;
 }
+
 
 @media screen and (max-width: 900px) and (min-width: 400px) {
   body {

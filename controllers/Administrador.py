@@ -111,7 +111,7 @@ def login():
 @token_required
 @admin_required
 def admin_info():
-    user_id = session.get('user_id')  # Assuming user_id is stored in the session
+    user_id = session.get('user_id') 
     if not user_id:
         return jsonify({"error": "Not logged in"}), 401
 

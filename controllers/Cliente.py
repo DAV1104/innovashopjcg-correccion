@@ -27,7 +27,16 @@ def add_clientes():
         direccion = data.get('direccion')
         telefono = data.get('telefono')
         email = data.get('email')
-        contraseña = hash_password(data.get('contraseña'))
+        contraseña = hash_password(data.get('nit'))
+
+        # Check if a user with the same email or cedula already exists
+        existing_user = Usuario.query.filter(
+            (Usuario.email == email) | 
+            (Usuario.cedula == nit)
+        ).first()
+        
+        if existing_user:
+            return jsonify({"error": "Ya existe un usuario con este correo electrónico o NIT."}), 409
 
         # Create new client user
         nuevo_cliente = Usuario(
@@ -56,3 +65,4 @@ def add_clientes():
         db.session.commit()
 
         return jsonify({"success": True})
+

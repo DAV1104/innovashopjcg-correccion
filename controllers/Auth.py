@@ -20,7 +20,7 @@ ruta_auth = Blueprint('auth_route', __name__)
 SECRET_KEY = 'Bendiciones-para-todos'
 
 def generar_token(user_id, role):
-    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=500)
+    fecha_vencimiento = datetime.now(tz=timezone.utc) + timedelta(seconds=700)
     payload = {
         "exp": fecha_vencimiento,
         "user_id": user_id,

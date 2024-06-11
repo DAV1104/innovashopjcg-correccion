@@ -7,12 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('empresa-rol').textContent = empresaData.rol;
 
                 if (empresaData.estado !== 'activo') {
-                    window.location.href = '/403';
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Empresa Inactiva',
+                        text: 'La empresa se encuentra inactiva. Por favor, solicite más tiempo de acceso.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then(() => {
+                        window.location.href = '/user/login';
+                    });
                 }
             })
             .catch(function(error) {
                 console.error('Error fetching empresa info:', error);
-                document.getElementById('admin-name').textContent = 'Error';
+                document.getElementById('empresa-name').textContent = 'Error';
             });
     };
 

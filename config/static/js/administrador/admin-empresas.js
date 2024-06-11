@@ -104,10 +104,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    const extenderPlazoSesion = (empresaId, meses) => {
-        axios.post('/empresa/extender-sesion', {
+    const modificarPlazoSesion = (empresaId, meses, accion) => {
+        axios.post('/empresa/modificar-sesion', {
             empresaId: empresaId,
-            meses: meses
+            meses: meses,
+            accion: accion
         })
         .then(function(response) {
             performSearch();
@@ -115,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
             extenderModal.hide();
         })
         .catch(function(error) {
-            console.error('Error extending session limit:', error);
+            console.error(`Error ${accion === 'extender' ? 'extending' : 'decreasing'} session limit:`, error);
         });
     };
 
@@ -158,10 +159,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.querySelectorAll('.btn-extender-plazo').forEach(button => {
+    document.querySelectorAll('.btn-modificar-plazo').forEach(button => {
         button.addEventListener('click', function() {
             const meses = this.dataset.meses;
-            extenderPlazoSesion(selectedEmpresaId, meses);
+            const accion = this.dataset.action;
+            modificarPlazoSesion(selectedEmpresaId, meses, accion);
         });
     });
 

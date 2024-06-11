@@ -5,6 +5,7 @@ from models.Modulos import Modulo
 from models.Modulos_Empresas import ModuloEmpresa
 from models.ClientesEmpresas import ClientesEmpresas
 from models.Usuario import Usuario
+from models.Proveedor import Proveedor
 from .Auth import token_required, admin_required, empresa_required
 from config.db import db
 from .hashing_helper import hash_password
@@ -28,6 +29,7 @@ def empresa_info():
         "rol": empresa.rol.capitalize(),
         "estado": empresa.estado
     })
+    
 
 @ruta_empresa.route('/home', methods=['GET'])
 @token_required
@@ -35,15 +37,34 @@ def empresa_info():
 def show_home_enterprise():
     return render_template('empresas-templates/inicio_empresas.html')
 
-@ruta_empresa.route('/extender-sesion', methods=['POST'])
+@ruta_empresa.route('/proveedores', methods=['GET'])
+@token_required
+@empresa_required
+def show_proveedores():
+    return render_template('empresas-templates/proveedores-empresas.html')
+
+@ruta_empresa.route('stock')
+@token_required
+@empresa_required
+def show_stock():
+    return render_template('empresas-templates/stock-empresas.html')
+
+@ruta_empresa.route('/add-proveedor', methods=['GET'])
+@token_required
+@empresa_required
+def add_proveedor_form():
+    return render_template('empresas-templates/add-proveedor.html')
+
+@ruta_empresa.route('/modificar-sesion', methods=['POST'])
 @token_required
 @admin_required
-def extender_sesion():
+def modificar_sesion():
     data = request.json
     empresa_id = data.get('empresaId')
     meses = data.get('meses')
+    accion = data.get('accion')  # This will be either 'extender' or 'disminuir'
 
-    if not empresa_id or not meses:
+    if not empresa_id or not meses or not accion:
         return jsonify({"error": "Datos incompletos"}), 400
 
     empresa = Empresa.query.get(empresa_id)
@@ -51,11 +72,16 @@ def extender_sesion():
         return jsonify({"error": "Empresa no encontrada"}), 404
 
     try:
-        empresa.session_limit = empresa.session_limit + timedelta(days=int(meses) * 30)
+        if accion == 'extender':
+            empresa.session_limit = empresa.session_limit + timedelta(days=int(meses) * 30)
+        elif accion == 'disminuir':
+            empresa.session_limit = empresa.session_limit - timedelta(days=int(meses) * 30)
+
         db.session.commit()
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 @ruta_empresa.route('/eliminar-empresa/<int:empresa_id>', methods=['DELETE'])
 @token_required
@@ -82,8 +108,42 @@ def eliminar_empresa(empresa_id):
 @token_required
 @empresa_required
 def list_clientes():
-    usuarios = Usuario.query.all()
+    empresa_id = session.get('user_id') 
+    if not empresa_id:
+        return jsonify({"error": "Not logged in"}), 401
+
+    cliente_ids = db.session.query(ClientesEmpresas.usuario_id).filter_by(empresa_id=empresa_id).all()
+    cliente_ids = [id[0] for id in cliente_ids]
+
+    usuarios = Usuario.query.filter(Usuario.id.in_(cliente_ids), Usuario.rol == "cliente").all()
+
     return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)
+
+@ruta_empresa.route('/api/clientes', methods=['GET'])
+@token_required
+@empresa_required
+def api_list_clientes():
+    empresa_id = session.get('user_id')
+    if not empresa_id:
+        return jsonify({"error": "Not logged in"}), 401
+
+    query = request.args.get('query', '')
+    
+    cliente_ids = db.session.query(ClientesEmpresas.usuario_id).filter_by(empresa_id=empresa_id).all()
+    cliente_ids = [id[0] for id in cliente_ids] 
+
+    if query:
+        usuarios = Usuario.query.filter(
+            Usuario.id.in_(cliente_ids),
+            Usuario.rol == "cliente",
+            (Usuario.nombre.contains(query) | Usuario.apellidos.contains(query) | Usuario.cedula.contains(query))
+        ).all()
+    else:
+        usuarios = Usuario.query.filter(Usuario.id.in_(cliente_ids), Usuario.rol == "cliente").all()
+
+    usuarios_data = [{"id": usuario.id, "cedula": usuario.cedula, "nombre": usuario.nombre, "apellidos": usuario.apellidos, "telefono": usuario.telefono, "email": usuario.email} for usuario in usuarios]
+    
+    return jsonify(usuarios_data)
 
 @ruta_empresa.route('/register', methods=['POST'])
 @token_required

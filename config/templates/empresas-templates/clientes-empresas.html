@@ -8,31 +8,34 @@
 </head>
 <body>
     <nav class="menu" tabindex="0">
-        <div class="smartphone-menu-trigger"></div>
-        <header class="avatar">
-            <img src="../static/img/icono-empresa.png" />
-            <h2 style="color: #070707; font-weight: bold">Ebay</h2>
-            <h2 style="font-size: 15px; color: #070707">Empresa</h2>
-        </header>
-        <div class="lista-iconos">
-          <a href="/empresa/home" class="icon-inicio">
-            <span>Inicio</span>
-          </a>
-          <a href="descuentos-empresas.html" class="icon-descuentos">
-            <span>Descuentos</span></a>
-          <a href="vendedores-empresas.html" class="icon-vendedores"><span>Vendedores</span></a>
-          <a href="/empresa/clientes" class="icon-clientes" ><span>Clientes</span></a>
-          <a href="stock-empresas.html" class="icon-stock "><span>Stock</span></li></a>
-  
-          <a href="cotizacion-empresas.html" class="icon-cotizacion "><span>Cotizacion</span></a>
-  
-          <a href="compras-empresas.html" class="icon-compra "><span>Compra</span></a>
-        </div>
+      <div class="smartphone-menu-trigger"></div>
+      <header class="avatar">
+        <img src="{{ url_for('static', filename='img/icono-empresa.png') }}" />
+        <h2 id="empresa-name" style="color: #070707; font-weight: bold">
+          Loading...
+        </h2>
+        <h2 style="font-size: 15px; color: #070707" id="empresa-rol">Loading...</h2>
+      </header>
+      <div class="lista-iconos">
+        <a href="/empresa/home" class="icon-inicio">
+          <span>Inicio</span>
+        </a>
+        <a href="descuentos-empresas.html" class="icon-descuentos">
+          <span>Descuentos</span></a>
+        <a href="vendedores-empresas.html" class="icon-vendedores"><span>Vendedores</span></a>
+        <a href="/empresa/clientes" class="icon-clientes" ><span>Clientes</span></a>
+        <a href="stock-empresas.html" class="icon-stock "><span>Stock</span></li></a>
 
-        <div class="Contenedor">
-            <a href="index.html" class="button-cerrar-sesion">Cerrar sesion</a>
-            <a href="index2.html" class="button-cambiar-cuenta">Cambiar cuenta</a>
-        </div>
+        <a href="cotizacion-empresas.html" class="icon-cotizacion "><span>Cotizacion</span></a>
+
+        <a href="compras-empresas.html" class="icon-compra "><span>Compra</span></a>
+      </div>
+
+      <div class="Contenedor">
+       <a href="/acceder" class="button-cerrar-sesion">Cerrar sesion</a>
+       <a href="/user/login" class="button-cambiar-cuenta">Cambiar cuenta</a>
+      </div>
+ 
     </nav>
 
     <div class="helper">
@@ -64,14 +67,10 @@
                     <label for="email" style="white-space: nowrap;">Email:</label>
                     <input type="text" id="email" name="email" required />
                 </div>
-                <div class="container-form">
-                    <label for="contraseña">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" required />
-                </div>
                 <button type="submit" class="boton-aceptar">ACEPTAR</button>
             </form>
 
-            <a href="clientes2-empresas.html">
+            <a href="/empresa/clientes">
                 <input type="button" class="ver-lista" value="VER LISTA">
             </a>
         </div>
@@ -81,6 +80,33 @@
     <script>
         document.getElementById('new-cliente-form').addEventListener('submit', function(event) {
             event.preventDefault();
+            const checkStatusAndUpdateInfo = () => {
+        axios.get('/empresa/empresa-info')
+            .then(function(response) {
+                const empresaData = response.data;
+                document.getElementById('empresa-name').textContent = empresaData.nombre;
+                document.getElementById('empresa-rol').textContent = empresaData.rol;
+
+                if (empresaData.estado !== 'activo') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Empresa Inactiva',
+                        text: 'La empresa se encuentra inactiva. Por favor, solicite más tiempo de acceso.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then(() => {
+                        window.location.href = '/user/login';
+                    });
+                }
+            })
+            .catch(function(error) {
+                console.error('Error fetching empresa info:', error);
+                document.getElementById('empresa-name').textContent = 'Error';
+            });
+    };
+
+    // Initial check
+    checkStatusAndUpdateInfo();
 
             const formData = new FormData(this);
             const data = {
@@ -89,8 +115,7 @@
                 nit: formData.get('nit'),
                 direccion: formData.get('direccion'),
                 telefono: formData.get('telefono'),
-                email: formData.get('email'),
-                contraseña: formData.get('contraseña')
+                email: formData.get('email')
             };
 
             axios.post('/cliente/add-clientes', data)
