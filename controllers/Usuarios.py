@@ -10,6 +10,7 @@ ruta_user = Blueprint('ruta_user', __name__)
 @ruta_user.route('/login', methods=['GET'])
 def login_route():
     session.clear()
+    
     response = make_response(render_template('login.html'))
     response.delete_cookie('token')
     return response

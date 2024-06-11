@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, session, render_template
+from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for
 from models.Empresa import Empresa, EmpresaSchema
 from models.Administrador import Administrador
 from models.Modulos import Modulo
@@ -19,7 +19,7 @@ ruta_empresa = Blueprint('empresa_route', __name__)
 empresa_schema = EmpresaSchema()
 empresas_schema = EmpresaSchema(many=True)
 
-DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'proveedores', 'informes']
+DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes', 'proveedores']
 
 @ruta_empresa.route('/empresa-info', methods=['GET'])
 @token_required
@@ -249,7 +249,7 @@ def register_empresa():
     db.session.commit()
 
     # List of default modules to be set as active
-    default_active_modules = ['clientes', 'stock', 'vendedores', 'compras', 'cotizaciones', 'informes']
+    default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes', 'proveedores']
 
     for module_name in DEFAULT_MODULES:
         modulo = Modulo.query.filter_by(nombre=module_name).first()
@@ -257,11 +257,12 @@ def register_empresa():
             modulo = Modulo(nombre=module_name, descripcion=module_name)
             db.session.add(modulo)
             db.session.commit()
+            print(f"Created module: {module_name}")  # Debugging statement
 
-        estado = module_name in default_active_modules
-        modulo_empresa = ModuloEmpresa(empresa_id=new_empresa.id, modulo_id=modulo.id, estado=estado)
-        db.session.add(modulo_empresa)
-    
+    estado = module_name in default_active_modules
+    modulo_empresa = ModuloEmpresa(empresa_id=new_empresa.id, modulo_id=modulo.id, estado=estado)
+    db.session.add(modulo_empresa)
+
     db.session.commit()
 
     return empresa_schema.jsonify(new_empresa)
@@ -277,7 +278,7 @@ def get_modules_for_company(empresa_id):
 
     # If no modules are found, create the default modules and associate them with the empresa
     if not modules:
-        default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'proveedores']
+        default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'informes', 'proveedores']
         for module_name in DEFAULT_MODULES:
             modulo = Modulo.query.filter_by(nombre=module_name).first()
             if not modulo:
