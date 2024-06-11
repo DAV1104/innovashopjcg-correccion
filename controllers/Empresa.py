@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, session, render_template
 from models.Empresa import Empresa, EmpresaSchema
 from models.Administrador import Administrador
 from models.Modulos import Modulo
@@ -6,6 +6,9 @@ from models.Modulos_Empresas import ModuloEmpresa
 from models.ClientesEmpresas import ClientesEmpresas
 from models.Usuario import Usuario
 from models.EmpresasDescuentosTime import EmpresasDescuentosTime
+from models.Producto import Producto
+from models.Compra import Compra
+from models.CompraDetalles import CompraDetalles
 from .Auth import token_required, admin_required, empresa_required
 from config.db import db
 from .hashing_helper import hash_password
@@ -16,7 +19,7 @@ ruta_empresa = Blueprint('empresa_route', __name__)
 empresa_schema = EmpresaSchema()
 empresas_schema = EmpresaSchema(many=True)
 
-DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'proveedores']
+DEFAULT_MODULES = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'proveedores', 'informes']
 
 @ruta_empresa.route('/empresa-info', methods=['GET'])
 @token_required
@@ -59,37 +62,49 @@ def aplicar_descuento():
 @token_required 
 @empresa_required
 def aplicar_descuentos():
-    return render_template('empresas-templates/descuentos-empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/descuentos-empresas.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('/home', methods=['GET'])
 @token_required
 @empresa_required
 def show_home_enterprise():
-    return render_template('empresas-templates/inicio_empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/inicio_empresas.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('/proveedores', methods=['GET'])
 @token_required
 @empresa_required
 def show_proveedores():
-    return render_template('empresas-templates/proveedores-empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/proveedores-empresas.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('stock')
 @token_required
 @empresa_required
 def show_stock():
-    return render_template('empresas-templates/stock-empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/stock-empresas.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('/add-proveedor', methods=['GET'])
 @token_required
 @empresa_required
 def add_proveedor_form():
-    return render_template('empresas-templates/add-proveedores-empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/add-proveedores-empresas.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('/vendedores-list')
 @token_required
 @empresa_required
 def show_vendedores():
-    return render_template('empresas-templates/vendedores2-empresas.html')
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/vendedores2-empresas.html', empresa_id=empresa_id)
+
+@ruta_empresa.route('/informes')
+@token_required
+def show_informes():
+    empresa_id = session.get('empresa_id')
+    return render_template('empresas-templates/informes-modulos.html', empresa_id=empresa_id)
 
 @ruta_empresa.route('/modificar-sesion', methods=['POST'])
 @token_required
@@ -144,6 +159,7 @@ def eliminar_empresa(empresa_id):
 @token_required
 @empresa_required
 def list_clientes():
+    empresa_id = session.get('empresa_id')
     empresa_id = session.get('empresa_id') 
     if not empresa_id:
         return jsonify({"error": "Not logged in"}), 401
@@ -153,7 +169,7 @@ def list_clientes():
 
     usuarios = Usuario.query.filter(Usuario.id.in_(cliente_ids), Usuario.rol == "cliente").all()
 
-    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios)
+    return render_template('empresas-templates/empresas-clientes-list.html', usuarios=usuarios, empresa_id=empresa_id)
 
 @ruta_empresa.route('/api/clientes', methods=['GET'])
 @token_required
@@ -233,7 +249,7 @@ def register_empresa():
     db.session.commit()
 
     # List of default modules to be set as active
-    default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones']
+    default_active_modules = ['clientes', 'stock', 'vendedores', 'compras', 'cotizaciones', 'informes']
 
     for module_name in DEFAULT_MODULES:
         modulo = Modulo.query.filter_by(nombre=module_name).first()
@@ -261,7 +277,7 @@ def get_modules_for_company(empresa_id):
 
     # If no modules are found, create the default modules and associate them with the empresa
     if not modules:
-        default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones']
+        default_active_modules = ['clientes', 'vendedores', 'compras', 'cotizaciones', 'stock', 'proveedores']
         for module_name in DEFAULT_MODULES:
             modulo = Modulo.query.filter_by(nombre=module_name).first()
             if not modulo:
@@ -281,6 +297,61 @@ def get_modules_for_company(empresa_id):
 
     return jsonify({"modules": module_status})
 
+@ruta_empresa.route('/empresa/productos', methods=['GET'])
+@token_required
+def get_productos():
+    query = request.args.get('query', '')
+    productos = Producto.query.filter(Producto.nombre.like(f'%{query}%')).all()
+    productos_data = [{"id": producto.id, "nombre": producto.nombre, "descripcion": producto.descripcion} for producto in productos]
+    return jsonify(productos_data)
+
+@ruta_empresa.route('/informes/general', methods=['POST'])
+@token_required
+def generate_general_report():
+    data = request.json
+    producto_id = data.get('producto_id')
+    
+    compra_detalles = CompraDetalles.query.filter_by(producto_id=producto_id).all()
+    compra_ids = [detalle.compra_id for detalle in compra_detalles]
+    compras = Compra.query.filter(Compra.id.in_(compra_ids)).all()
+
+    monthly_data = {}
+    for compra in compras:
+        month_year = compra.fecha.strftime('%Y-%m')
+        if month_year not in monthly_data:
+            monthly_data[month_year] = 0
+        monthly_data[month_year] += 1
+
+    labels = sorted(monthly_data.keys())
+    data_points = [monthly_data[label] for label in labels]
+
+    return jsonify({"labels": labels, "data": data_points})
+
+@ruta_empresa.route('/informes/mensual', methods=['POST'])
+@token_required
+def generate_mensual_report():
+    data = request.json
+    producto_id = data.get('producto_id')
+
+    today = datetime.today()
+    last_month = today - timedelta(days=30)
+    
+    compra_detalles = CompraDetalles.query.filter_by(producto_id=producto_id).all()
+    compra_ids = [detalle.compra_id for detalle in compra_detalles]
+    compras = Compra.query.filter(Compra.id.in_(compra_ids), Compra.fecha >= last_month).all()
+
+    daily_data = {}
+    for compra in compras:
+        day = compra.fecha.strftime('%Y-%m-%d')
+        if day not in daily_data:
+            daily_data[day] = 0
+        daily_data[day] += 1
+
+    labels = sorted(daily_data.keys())
+    data_points = [daily_data[label] for label in labels]
+
+    return jsonify({"labels": labels, "data": data_points})
+
 @ruta_empresa.route('/update-module-status', methods=['POST'])
 @admin_required
 @token_required
@@ -290,16 +361,21 @@ def update_module_status():
     modulo_nombre = data.get('moduloNombre')
     estado = data.get('estado')
 
+    print(f"Received data: {data}")  # Debugging statement
+
     empresa = Empresa.query.get(empresa_id)
     if not empresa:
+        print(f"Empresa not found: {empresa_id}")  # Debugging statement
         return jsonify({"error": "Empresa no encontrada"}), 404
 
     modulo = Modulo.query.filter_by(nombre=modulo_nombre).first()
     if not modulo:
+        print(f"Modulo not found: {modulo_nombre}")  # Debugging statement
         return jsonify({"error": "Modulo no encontrado"}), 404
 
     modulo_empresa = ModuloEmpresa.query.filter_by(empresa_id=empresa.id, modulo_id=modulo.id).first()
     if not modulo_empresa:
+        print(f"Relation Empresa-Modulo not found for empresa_id: {empresa.id} and modulo_id: {modulo.id}")  # Debugging statement
         return jsonify({"error": "Relación Empresa-Modulo no encontrada"}), 404
 
     modulo_empresa.estado = estado

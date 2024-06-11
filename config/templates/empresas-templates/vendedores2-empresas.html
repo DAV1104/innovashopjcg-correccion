@@ -146,7 +146,11 @@
 
       // Set an interval to check the status every 30 seconds (30000 milliseconds)
       setInterval(checkStatusAndUpdateInfo, 30000); // 5 minutes
+      
+      window.empresaId = "{{ empresa_id }}";
     });
+    </script>
+    <script>
     </script>
     <scripts src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
 </body>

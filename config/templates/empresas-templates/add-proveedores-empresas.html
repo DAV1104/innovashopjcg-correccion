@@ -101,7 +101,7 @@
                 const formData = new FormData(event.target);
                 const data = Object.fromEntries(formData.entries());
 
-                axios.post('/vendedor/add-proveedor', data)
+                axios.post('/proveedor/add-proveedor', data)
                     .then(function(response) {
                         Swal.fire({
                             icon: 'success',
@@ -121,6 +121,9 @@
                     });
             });
         });
+    </script>
+    <script>
+        window.empresaId = "{{ empresa_id }}";
     </script>
     <script src="{{ url_for('static', filename='js/empresas/check-modules.js' )}}"></script>
 </body>

@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const empresaId = // Set this to the current empresa_id (you might need to get it from the session or a global variable);
-    
-    fetch(`/ruta_empresa/${empresaId}/modules`, {
+    const empresaId = window.empresaId;
+
+    if (!empresaId) {
+        console.error("No empresaId found");
+        return;
+    }
+
+    fetch(`/empresa/${empresaId}/modules`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -15,17 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         const modules = data.modules;
-        
+
         // Show or hide elements based on module states
         if (!modules.clientes) {
             document.querySelector('.icon-clientes').style.display = 'none';
         }
         if (!modules.vendedores) {
             document.querySelector('.icon-vendedores').style.display = 'none';
-        }
-        if (!modules.compras) {
-            // Assuming you want to hide the entire compras container
-            document.querySelector('.container').style.display = 'none';
         }
         if (!modules.cotizaciones) {
             document.querySelector('.icon-cotizacion').style.display = 'none';
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Specific case for hiding the "Añadir Stock" button in stock-empresas.html
-        if (!modules.stock) {
+        if (!modules.compras) {
             const addStockButton = document.getElementById('add-stock-button');
             if (addStockButton) {
                 addStockButton.style.display = 'none';

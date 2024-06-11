@@ -9,7 +9,7 @@ from models.EmpresasDescuentosTime import EmpresasDescuentosTime
 from werkzeug.utils import secure_filename
 from models.Empresa import Empresa
 from .Auth import token_required
-from datetime import datetime
+from datetime import datetime, date
 
 ruta_productos = Blueprint('ruta_productos', __name__)
 
@@ -69,7 +69,7 @@ def add_stock():
         if not empresa:
             return jsonify({"error": "Empresa not found"}), 404
 
-        iva = empresa.iva
+        iva = empresa.tax
         profit_percentage = empresa.profit_percentage
 
         # Calculate precio_venta
@@ -84,7 +84,6 @@ def add_stock():
             existencias=existencias,
             min_existencias=min_existencias,
             img_src=img_src,
-            categoria_id=categoria_id
         )
         
         db.session.add(nuevo_producto)
@@ -183,13 +182,36 @@ def delete_product(id):
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": "Failed to delete product", "message": str(e)}), 500
+    
+    
+@ruta_productos.route('/all-products', methods=['GET'])
+@token_required
+def get_all_products():
+    empresa_id = session['empresa_id']
+    compras = Compra.query.filter_by(empresa_id=empresa_id).all()
+    
+    if not compras:
+        return jsonify({"error": "No hay compras asociadas a esta empresa"}), 404
+
+    compra_ids = [compra.id for compra in compras]
+    compra_detalles = CompraDetalles.query.filter(CompraDetalles.compra_id.in_(compra_ids)).all()
+    producto_ids = [detalle.producto_id for detalle in compra_detalles]
+
+    productos = Producto.query.filter(Producto.id.in_(producto_ids)).all()
+
+    productos_info = [{"id": producto.id, "nombre": producto.nombre} for producto in productos]
+
+    return jsonify(productos_info)
+
+
 
 @ruta_productos.route('/productos', methods=['GET'])
 @token_required
 def get_productos():
-    from datetime import date
 
     empresa_id = session['empresa_id']
+    query = request.args.get('query')
+
     compras = Compra.query.filter_by(empresa_id=empresa_id).all()
 
     if not compras:
@@ -199,9 +221,13 @@ def get_productos():
     compra_detalles = CompraDetalles.query.filter(CompraDetalles.compra_id.in_(compra_ids)).all()
     producto_ids = [detalle.producto_id for detalle in compra_detalles]
 
-    productos = Producto.query.filter(Producto.id.in_(producto_ids)).all()
+    if query:
+        productos = Producto.query.filter(Producto.id.in_(producto_ids), Producto.nombre.ilike(f'%{query}%')).all()
+    else:
+        productos = Producto.query.filter(Producto.id.in_(producto_ids)).all()
+        
     empresa = Empresa.query.get(empresa_id)
-    
+
     # Check for active discounts
     today = date.today()
     descuento = EmpresasDescuentosTime.query.filter(
@@ -209,13 +235,13 @@ def get_productos():
         EmpresasDescuentosTime.fecha_inicio <= today,
         EmpresasDescuentosTime.fecha_fin >= today
     ).first()
-    
+
     productos_info = []
     for producto in productos:
         precio_venta = producto.precio * (1 + empresa.tax / 100) * (1 + empresa.profit_percentage / 100)
         if descuento:
             precio_venta *= (1 - descuento.porcentaje_descuento / 100)
-        
+
         productos_info.append({
             "id": producto.id,
             "nombre": producto.nombre,
